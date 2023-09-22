@@ -1,2 +1,2 @@
 # SpliTech-
-Webpage for SpliTech conference
+Webpage for SpliTech conference 2024
