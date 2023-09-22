@@ -1,0 +1,21 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../../assets/HERO-IMAGE.svg");
+  background-size: cover;
+  background-position: center;
+}
+.content {
+  height: 100vh;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  color:pink;
+  font-size:400%;
+  padding-top: 2%;
+  box-sizing: border-box;
+}
+.exit{
+    padding-left: 70%;
+}
