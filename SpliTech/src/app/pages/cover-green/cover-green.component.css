@@ -40,4 +40,12 @@
 .secondLine{
     color: aliceblue;
     font-size: medium;
+    
+}
+.longLine{
+  display: inline-block;
+  width: 20%; 
+  height: 1px; 
+  background-color: white; 
+  margin: 0 10px; 
 }
