@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   width: 100%;
-  background-image: url("../../../assets/HERO-IMAGE.svg");
+  background-color: #4bcb5e;
   background-size: cover;
   background-position: center;
 }
@@ -11,7 +11,7 @@
   display: block;
   justify-content: center;
   text-align: center;
-  color:pink;
+  color:#0b2240;
   font-size:400%;
   padding-top: 2%;
   box-sizing: border-box;

@@ -1,10 +1,10 @@
 * {
-    color: yellow;
+    color: #4bcb5e;
   }
   .container {
     height: 100vh;
     width: 100%;
-    background-image: url("../../../assets/HERO-IMAGE.svg");
+    background-color: #0b2240;
     background-size: cover;
     background-position: center;
     padding: 0 5% 0 15%;
@@ -48,5 +48,6 @@
     transform: translateY(-45%);
     position: relative;
     top: 50%;
+    padding-left:1.5%;
   }
   

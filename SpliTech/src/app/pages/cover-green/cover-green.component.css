@@ -1,7 +1,7 @@
 .container {
   height: 100vh;
   width: 100%;
-  background-image: url("../../../assets/HERO-IMAGE.svg");
+  background-color: #4bcb5e;
   background-size: cover;
   background-position: center;
   padding: 5% 5% 5% 15%;
@@ -10,7 +10,6 @@
 .content {
     height: 100vh;
     width: 100%;
-  
   }
 .logo img {
   width: 100px;
@@ -22,24 +21,28 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
-  color:green;
+  color:#4bcb5e;
 }
 .futureArrow{
   display: flex;
   justify-content: space-between;
   text-align: center;
-  color:green;
+  color:#4bcb5e;
 }
 .arrow{
-    padding-top: 15%;
+    padding-top: 10%;
 }
 .firstLine, .tirthLine{
     font-size: 1500%;
-    color:green;
+    color:#0b2240;
+    font-family: "Pin Spotter JNL Regular";
+    font-weight: bold; 
 }
 .secondLine{
-    color: aliceblue;
-    font-size: medium;
+    color:white;
+    font-size: x-large;
+    font-family: "Pin Spotter JNL Regular";
+
     
 }
 .longLine{
