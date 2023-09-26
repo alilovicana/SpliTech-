@@ -1,8 +1,10 @@
 .container {
   height: 100vh;
-  width: 100%;background-image: url('../../../assets/greenBackground-svg.svg');
+  width: 100%;
+  background-image: url("../../../assets/greenBackground-svg.svg");
   background-size: cover;
   background-position: center;
+  font-size: 10px;
 }
 .content {
   height: 100vh;
@@ -10,12 +12,67 @@
   display: block;
   justify-content: center;
   text-align: center;
-  color:#0b2240;
-  font-size:400%;
-  padding-top: 2%;
+  color: #0b2240;
+  font-size: 7em;
+  padding: 2%;
   box-sizing: border-box;
   font-family: "Varent Grotesk";
 }
-.exit{
-    padding-left: 70%;
+.exit {
+  padding-left: 80%;
+  width: 100px;
+  height: 100px;
+}
+@media (max-width: 700px) {
+  .content {
+    font-size: 5em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+  .content div {
+    padding: 2%;
+  }
+  .exit {
+    float: right;
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 500px) {
+  .content {
+    font-size: 3.5em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+  .content div {
+    padding: 2%;
+  }
+  .exit {
+    float: right;
+ 
+  }
+  .exit img{
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+@media (max-width: 400px) {
+  
+  .content {
+    font-size: 2em;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    
+  }
+  .content div {
+    padding: 2%;
+  }
+  .exit img {
+    width: 2em;
+    height: 2em;
+  }
 }

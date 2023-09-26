@@ -41,7 +41,7 @@
     font-size: 1500%;
     transform: translateY(50%); 
     top: 60%;
-    position: absolute; /* Koristite apsolutno pozicioniranje */
+    position: absolute; 
    
   }
   .firstLine{

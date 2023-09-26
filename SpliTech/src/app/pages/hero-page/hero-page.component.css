@@ -8,18 +8,28 @@
   padding: 0 5% 0 15%;
   box-sizing: border-box;
   overflow: hidden;
+  display: relative;
 }
 .content {
   height: 100vh;
   width: 100%;
+  
 }
 
 .goForMenu {
-  font-size: 1500%;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding-left:20px;
+  padding-left: 20px;
+  height: 25%;
+  top: 0; 
+  transform: translateY(-50%); 
+}
+
+.firstLine{
+  font-size: 14vw;
+  color:#4bcb5e;
+  font-family: "Varent Grotesk Bold";
 }
 .mainContent {
   display: flex;
@@ -32,18 +42,25 @@
   text-align: center;
   color:#4bcb5e;
 }
+.secondLine {
+  color: white;
+  font-size: x-large;
+  font-family: "Everett Regular";
+}
+.longLine {
+  display: inline-block;
+  width: 20%;
+  height: 1px;
+  background-color: white;
+  margin: 0 10px;
+  color:#4bcb5e;
+}
 .future {
-  font-size: 1500%;
-  transform: translateY(50%); 
-  position: relative;
-  top: 15%;
+  font-size: 14vw;
+  height: 25%;
+  top: 0; 
+  transform: translateY(200%); 
   color:#4bcb5e;
   font-family: "Varent Grotesk Bold";
 }
-.firstLine{
-  transform: translateY(-45%);
-  position: relative;
-  top: 50%;
-  color:#4bcb5e;
-  font-family: "Varent Grotesk Bold";
-}
+
