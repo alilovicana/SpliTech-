@@ -1,4 +1,4 @@
-import { Component, HostListener} from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -22,23 +22,25 @@ export class AppComponent {
   onScroll(event: Event): void {
     const scrollY = window.scrollY;
     const viewportHeight = window.innerHeight;
+    const totalHeight = document.body.clientHeight;
 
     if (this.coverGreen && this.coverBlue && this.heroPage) {
-    //   const opacityGreen = Math.min(1, Math.max(0, 0.8 - scrollY / viewportHeight));
-    // const opacityBlue = Math.min(1, Math.max(0, 0.2 + scrollY / viewportHeight));
-
-    // this.coverGreen.style.opacity = opacityGreen.toString();
-    // this.coverBlue.style.opacity = opacityBlue.toString();
-     if(scrollY >= viewportHeight){
-        this.coverGreen.style.opacity = '0'; 
-        this.coverBlue.style.display = 'block'; 
-      }
-      else{
-        this.coverGreen.style.opacity = '1'; 
+      if ( scrollY >= viewportHeight && scrollY <= totalHeight - viewportHeight)
+       {
+        this.coverGreen.style.opacity = '0';
+        this.coverBlue.style.display = 'block';
+        this.heroPage.style.display = 'none'; 
+      } else if (scrollY > totalHeight - viewportHeight) {
+       
+        this.coverGreen.style.opacity = '0';
         this.coverBlue.style.display = 'none'; 
+        this.heroPage.style.display = 'block';
+      } else {
+        this.coverGreen.style.opacity = '1';
+        this.coverBlue.style.display = 'none';
+        this.heroPage.style.display = 'none';
       }
-      
+      console.log(this.heroPage)
     }
   }
 }
-
