@@ -4,4 +4,8 @@ tamno plava: #0b2240  rgb(11, 34, 64)
 
 zelena: #4bcb5e  rgb(75, 203, 94)
 
+<div data-aos="fade-up"
+     data-aos-duration="3000">
+</div>
+
 

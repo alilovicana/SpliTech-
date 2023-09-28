@@ -1,3 +1,15 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0b2240;
+  z-index: 2;
+  display: none; 
+  transition: opacity 0.5s ease; 
+}
+
 .container {
   height: 100vh;
   width: 100%;
@@ -33,7 +45,7 @@
 }
 .firstLine,
 .tirthLine {
-  font-size: 14vw;
+  font-size: 13vw;
   color: #4bcb5e;
   font-family: "Varent Grotesk Bold";
   font-weight: bold;
