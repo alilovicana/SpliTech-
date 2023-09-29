@@ -11,5 +11,5 @@ export class ContentPageComponent {
 
   }
   spliTech2023=this.$service.spliTech2023;
-spliTech2024=this.$service.spliTech2024;
+  spliTech2024=this.$service.spliTech2024;
 }
