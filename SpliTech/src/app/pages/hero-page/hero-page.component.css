@@ -1,67 +1,94 @@
-:host {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  transition: opacity 0.7s ease; 
-}
 .container {
   height: 100vh;
   width: 100%;
-  background-image: url('../../../assets/blueBackground-svg.svg');
+  background-image: url("../../../assets/blueBackground-svg.svg");
   background-size: cover;
   background-position: center;
   padding: 0 5% 0 15%;
-  box-sizing: border-box;
   overflow: hidden;
   position: relative;
+  min-height: 100px;
 }
 .goForMenu {
   display: flex;
   justify-content: space-between;
-  text-align: center;
-  top: 0; 
-  transform: translateY(-45%); 
-  position: sticky;
+  position: absolute;
+  top: -100px;
 }
-.menu{
+.menu {
   padding-top: 17vh;
-  position: sticky;
+  padding-left: 58vh;
 }
-.firstLine{
-  font-size: 13vw;
-  color:#4bcb5e;
+.nine {
   font-family: "Varent Grotesk Bold";
-  position: sticky;
+  font-size: 50em;
+  color: white;
+  position: relative;
+  top: -230px;
+  z-index: 1;
+}
+.conferenceName {
+  position: relative;
+  top: 150px;
+
+  color: #4bcb5e;
+  font-size: 4vw;
+  font-family: "Varent Grotesk Bold";
+}
+.firstLine {
+  font-size: 13vw;
+  color: #4bcb5e;
+  font-family: "Varent Grotesk Bold";
 }
 .contents{
-  display: block;
-  text-align: center;
-  max-height: 50vh;
-  position:relative;
-  overflow: scroll;
+  height: 75vh;
+  width: 100%;
+  overflow-y: scroll;
+  scrollbar-width:none; 
+  scrollbar-color:transparent transparent; 
+}
+.contents::-webkit-scrollbar {
+  width: 0px; 
+}
+
+.contents::-webkit-scrollbar-thumb {
+  background-color: transparent; 
 }
 .mainContent {
   display: flex;
   text-align: center;
-  max-height: 45vh;
-  position:relative;
+  max-height: 50vh;
 }
 .mainContentPlayGround{
   display: flex;
   text-align: center;
   height: 45vh;
-  position:relative;
+  margin-bottom: 500px;
 }
-.mainContentContent{
+.mainContentContent {
   display: flex;
-  justify-content: space-between;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   min-height: 45vh;
   background-color: azure;
   border-radius: 20px;
   margin-bottom: 3%;
+  margin-bottom: 200px;
+}
+
+.future {
+  font-size: 13vw;
+  color: #4bcb5e;
+  font-family: "Varent Grotesk Bold";
+  bottom: -100px;
+}
+.secArrow {
+  position: relative;
+  z-index: 2;
+}
+.arrow {
+  position: absolute;
+  left:75vw;
 }
 .secondLine {
   color: white;
@@ -74,53 +101,25 @@
   display: inline-block;
   width: 20%;
   height: 1px;
-  background-color:#4bcb5e;
+  background-color: #4bcb5e;
   margin: 0 10px;
   position: sticky;
- 
 }
-.future {
-  position: absolute;
-  font-size: 13vw;
-  transform: translateY(45%); 
-  color:#4bcb5e;
-  font-family: "Varent Grotesk Bold";
-  position: sticky;
-}
-.arrow{
-  float:right;
-  position: sticky;
-}
-.nine{
-  font-family: "Varent Grotesk Bold";
-  font-size: 60em;
-  color:white;
-  position:absolute;
-  transform: translateY(-50%);
-}
-.conferenceName{
-  padding-left: 40vw;
-  color:#4bcb5e;
-  font-size: 4vw;
-  font-family: "Varent Grotesk Bold";
-}
-@media (max-width: 1200px) {
- .goForMenu{
 
-  transform: translateY(-35%); 
- }
- .future{
-  transform: translateY(300%); 
- }
+@media (max-width: 1200px) {
+  .goForMenu {
+    transform: translateY(-35%);
+  }
+  .future {
+    transform: translateY(300%);
+  }
 }
 
 @media (max-width: 1000px) {
-  .goForMenu{
- 
-   transform: translateY(-35%); 
+  .goForMenu {
+    transform: translateY(-35%);
   }
-  .future{
-   transform: translateY(300%); 
+  .future {
+    transform: translateY(300%);
   }
- }
- 
+}
