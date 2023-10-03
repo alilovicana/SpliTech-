@@ -1,10 +1,9 @@
 :host {
-  /* position: sticky; */
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 1;
   transition: opacity 0.7s ease; 
 }
 .container {
@@ -25,7 +24,6 @@
   top: 0; 
   transform: translateY(-45%); 
   position: sticky;
-  z-index: 1;
 }
 .menu{
   padding-top: 17vh;
@@ -99,7 +97,6 @@
   color:white;
   position:absolute;
   transform: translateY(-50%);
-  z-index: 2;
 }
 .conferenceName{
   padding-left: 40vw;
