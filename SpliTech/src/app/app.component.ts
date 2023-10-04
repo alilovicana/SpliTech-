@@ -27,16 +27,36 @@ export class AppComponent implements OnInit {
     const viewportHeight = window.innerHeight;
     const totalHeight = document.body.clientHeight;
 
-    if(this.coverBlue&& this.coverGreen){
-      if(scrollY>=viewportHeight && scrollY<=totalHeight-(viewportHeight+viewportHeight)){
-        this.coverGreen.style.opacity='0';
-        this.coverBlue.style.display='block';///////coverBlue
+    if(this.coverBlue&& this.coverGreen&&this.heroPage&&this.mainManu){
+      if(scrollY>=viewportHeight && scrollY<=totalHeight-(viewportHeight*2)){
+         this.coverGreen.style.opacity='0';
+         this.heroPage.style.opacity='0';
+         this.mainManu.style.opacity='0';
+         this.coverBlue.style.opacity='1';///////coverBlue
         this.coverBlue.style.position='sticky';
+        console.log('blue');
+      }else if(scrollY>viewportHeight*2 && scrollY<totalHeight-viewportHeight){
+         this.coverGreen.style.opacity='0';
+         this.coverBlue.style.opacity='0';
+         this.heroPage.style.opacity='1';///////heroPage
+         this.mainManu.style.opacity='1';
+
+        console.log('hero');
+      }else if(scrollY>=viewportHeight*3 && scrollY<=totalHeight){
+         this.coverGreen.style.opacity='0';
+         this.coverBlue.style.opacity='0';///////mainManu
+         this.heroPage.style.opacity='0';
+         this.mainManu.style.opacity='1';
+        
+        console.log('main');
       }
       else{
-        this.coverGreen.style.opacity='1';
-        this.coverGreen.style.position='sticky';///////coverGreen
-        this.coverBlue.style.display='none';
+         this.coverGreen.style.opacity='1';
+         this.coverBlue.style.opacity='0';
+         this.heroPage.style.opacity='0';
+         this.mainManu.style.opacity='0';
+         this.coverGreen.style.position='sticky';///////coverGreen
+        console.log('green');
       }
     }
   }
