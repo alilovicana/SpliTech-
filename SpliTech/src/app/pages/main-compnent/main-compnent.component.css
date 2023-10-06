@@ -1,27 +1,29 @@
 /*Cover Blue still*/
-:host {
-    position: static;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: opacity 0.5s ease; 
-  }
   
-  .container {
-    height: 100vh;
+:host {
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0b2240;
+  transition: opacity 0.5s ease; 
+}.container {
+    min-height: 100vh;
     width: 100%;
     background-image: url("../../../assets/blueBackground-svg.svg");
     background-size: cover;
     background-position: center;
     padding: 2% 5% 5% 15%;
     box-sizing: border-box;
+    overflow: hidden;
   }
   .logo img {
     width: 150px;
     height: 70px;
   }
   
-  .logoMenu {
+  .firstLineMenu {
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -57,6 +59,11 @@
   }
   .firstLine {
     position: relative;
+    top:-100px;
+  }
+  .tirthLine {
+    position: relative;
+    top:200px;
   }
   .applyNow {
     position: absolute;
@@ -66,33 +73,25 @@
 
   /*heroPage*/
   .contents{
-    height: 75vh;
+    height: 250vh;
     width: 100%;
-    overflow-y: scroll;
-    scrollbar-width:none; 
-    scrollbar-color:transparent transparent; 
-  }
-  .contents::-webkit-scrollbar {
-    width: 0px; 
-  }
-  
-  .contents::-webkit-scrollbar-thumb {
-    background-color: transparent; 
   }
   .content{
-    height: 75vh*3;
+    height: calc(75vh * 3);
     width: 100%;
   }
   .mainContent {
     display: flex;
     text-align: center;
     max-height: 50vh;
+    margin-bottom: 500px;
   }
   .mainContentPlayGround{
     display: flex;
     text-align: center;
     height: 45vh;
-    margin-bottom: 500px;
+    margin-bottom: 200px;
+    position: relative;
   }
   .mainContentContent {
     display: flex;
@@ -103,6 +102,9 @@
     border-radius: 20px;
     margin-bottom: 3%;
     margin-bottom: 200px;
+    background-image: url("../../../assets/img-0015.jpg");
+    background-size: cover;
+    background-position: center;
   }
   .nine {
     font-family: "Varent Grotesk Bold";
@@ -119,4 +121,13 @@
     color: #4bcb5e;
     font-size: 4vw;
     font-family: "Varent Grotesk Bold";
+  }
+  .programme{
+    position: absolute;
+    top:-170px;
+    left:100px;
+  }
+  .virtualAcess{
+   position: relative;
+   top:150px;
   }

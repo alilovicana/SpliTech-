@@ -7,19 +7,20 @@ import * as AOS from 'aos';
 })
 export class AppComponent implements OnInit {
   private coverGreen?: HTMLElement;
+  private coverBlue?: HTMLElement;
   private mainComponent?:HTMLElement;
   private mainManu?: HTMLElement;
 
   private goFor?:HTMLElement;
   private future?:HTMLElement;
   private secondLine?: HTMLElement;
-  public content: boolean=true; 
   title = 'SpliTech';
   constructor() {}
 
   ngOnInit() {
     AOS.init();
     this.coverGreen = document.querySelector('app-cover-green') as HTMLElement;
+    this.coverBlue = document.querySelector('app-cover-blue') as HTMLElement;
     this.mainComponent = document.querySelector('app-main-compnent') as HTMLElement;
     this.mainManu = document.querySelector('app-main-manu') as HTMLElement;
 
@@ -35,36 +36,27 @@ export class AppComponent implements OnInit {
     const totalHeight = document.body.clientHeight;
  
 
-    if( this.coverGreen&&this.mainComponent&&this.mainManu&& this.goFor &&this.future && this.secondLine){
-      if(scrollY>=viewportHeight && scrollY<totalHeight-viewportHeight){
-      
-        this.coverGreen.style.opacity='0';
-        this.mainManu.style.opacity='1';
-        this.mainComponent.style.opacity='1';///////mainComponent
-        this.mainComponent.style.position='sticky';
-        if(scrollY>=viewportHeight*5/3 && scrollY<totalHeight-viewportHeight){
-          this.goFor.style.transform = `translateY(-${scrollY-1800}px)`;
-          this.future.style.transform = `translateY(${scrollY-1600}px)`;
-          // if(scrollY<=totalHeight-viewportHeight){
-          // this.goFor.style.position='sticky';
-          // this.future.style.position='sticky';
-          // }
-        }
-       console.log('mainComponent');
-       console.log(scrollY)
-     }
-     else if(scrollY>=viewportHeight*2 && scrollY<=totalHeight){
+    if( this.coverGreen&&this.coverBlue&&this.mainComponent&&this.mainManu&& this.goFor &&this.future && this.secondLine){
+       if(scrollY>=viewportHeight && scrollY<=totalHeight-(viewportHeight*4.3)){
         this.mainComponent.style.opacity='0';
-         this.coverGreen.style.opacity='0';///////mainManu
-         this.mainManu.style.opacity='1';
-        console.log('main');
-      }
-      else{
+         this.coverGreen.style.opacity='0';///////coverBlue
+         this.mainManu.style.opacity='0';
+         this.coverBlue.style.opacity='1';
+         this.coverBlue.style.position='sticky';
+       }
+      else if(scrollY>=0 && scrollY<totalHeight-(viewportHeight*5)){
          this.coverGreen.style.opacity='1';
          this.mainManu.style.opacity='0';
          this.mainComponent.style.opacity='0';
+         this.coverBlue.style.opacity='0';
          this.coverGreen.style.position='sticky';///////coverGreen
         console.log('green');
+      }
+      else{
+        this.coverGreen.style.opacity='0';
+        this.mainManu.style.opacity='1';
+        this.mainComponent.style.opacity='1';
+        this.coverBlue.style.opacity='0';
       }
     }
   }
