@@ -1,36 +1,30 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { IsVisibleService } from './is-visible.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  private coverGreen?: HTMLElement;
-  private coverBlue?: HTMLElement;
-  private mainComponent?: HTMLElement;
-  private mainManu?: HTMLElement;
 
   private goFor?: HTMLElement;
   private future?: HTMLElement;
   private secondLine?: HTMLElement;
   private logo?: HTMLElement;
   title = 'SpliTech';
-  constructor() {}
+  public isVisible?:boolean;
+  constructor( public $isVisible:IsVisibleService) {}
 
   ngOnInit() {
     AOS.init();
-    this.coverGreen = document.querySelector('app-cover-green') as HTMLElement;
-    this.coverBlue = document.querySelector('app-cover-blue') as HTMLElement;
-    this.mainComponent = document.querySelector(
-      'app-main-compnent'
-    ) as HTMLElement;
-    this.mainManu = document.querySelector('app-main-manu') as HTMLElement;
-
     this.goFor = document.getElementById('goFor') as HTMLElement;
     this.future = document.getElementById('future') as HTMLElement;
     this.secondLine = document.getElementById('secondLine') as HTMLElement;
     this.logo = document.getElementById('logo') as HTMLElement;
+
+
+    this.isVisible=this.$isVisible.isVisible;
   }
 
   @HostListener('window:scroll', ['$event'])

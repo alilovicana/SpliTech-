@@ -1,10 +1,9 @@
 <div class="container" [class]="styles[currentStyleIndex]">
     <div class="logoMenu">
       <div class="logo"><img src="../../../assets/logoBijeli.svg" /></div>
-      <div class="menu" id="menu" (click)="openMainManu()">
+      <div class="menu" id="menu" (click)="toggleVisible()">
         <img [src]="imagesIzbornik[currentImageIndex]" style="transition: ease 1s;" />
       </div>
-      <div *ngIf="mainManuVisible"><app-main-manu></app-main-manu></div>
     </div>
     <div class="title">
       <div class="firstLine">GO FOR</div> 

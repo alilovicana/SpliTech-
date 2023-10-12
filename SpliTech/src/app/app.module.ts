@@ -6,6 +6,8 @@ import { CoverGreenComponent } from './pages/cover-green/cover-green.component';
 import { CoverBlueComponent } from './pages/cover-blue/cover-blue.component';
 import { MainManuComponent } from './pages/main-manu/main-manu.component';
 import { MainCompnentComponent } from './pages/main-compnent/main-compnent.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ToggleVisibleComponent } from './pages/toggle-visible/toggle-visible.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { MainCompnentComponent } from './pages/main-compnent/main-compnent.compo
     CoverGreenComponent,
     CoverBlueComponent,
     MainManuComponent,
-    MainCompnentComponent
+    MainCompnentComponent,
+    ToggleVisibleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

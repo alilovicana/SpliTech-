@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainServiceService } from 'src/app/main-service.service';
+import { IsVisibleService } from 'src/app/is-visible.service';
 
 @Component({
   selector: 'app-cover-green',
@@ -22,7 +23,7 @@ export class CoverGreenComponent implements OnInit {
     '../../../assets/greenStrelica.svg',
   ];
   public currentArrowIndex: number = 0;
-  constructor(public $service: MainServiceService) {}
+  constructor(public $service: MainServiceService, public $isVisible:IsVisibleService) {}
   ngOnInit() {
     setInterval(() => {
       this.currentArrowIndex =
@@ -33,9 +34,9 @@ export class CoverGreenComponent implements OnInit {
         (this.currentImageIndex + 1) % this.imagesIzbornik.length;
     }, 3000);
   }
-  openMainManu() {
-    this.mainManuVisible = !this.mainManuVisible;
-  }
+ toggleVisible(){
+  this.$isVisible.toggleVisible();
+ }
   spliTech2023 = this.$service.spliTech2023;
   spliTech2024 = this.$service.spliTech2024;
 }
