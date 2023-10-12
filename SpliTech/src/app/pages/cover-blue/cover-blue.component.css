@@ -3,13 +3,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   background-color: #0b2240;
   z-index: 2;
-  transition: opacity 0.5s ease; 
+  transition: opacity 0.5s ease;
 }
 .container {
-  height: 100vh;
+  height: 200vh;
   width: 100%;
   background-image: url("../../../assets/blueBackground-svg.svg");
   background-size: cover;
@@ -43,6 +43,7 @@
   color: #4bcb5e;
   font-family: "Varent Grotesk Bold";
   font-weight: bold;
+  transition: transform 1s ease;
 }
 .secondLine {
   color: white;
@@ -62,5 +63,20 @@
 .applyNow {
   position: absolute;
   left: 73%;
-
+}
+.windowAnimationGoFor {
+  transform: translateY(-25vh);
+}
+.windowAnimationFuture{
+  transition: transform 1s ease;
+  transform: translateY(45vh);
+}
+.menu{
+  position: sticky;
+}
+.windowAnimationGoForRevert{
+  transform: translateY(0vh);
+}
+.windowAnimationFutureRevert{
+  transform: translateY(0vh);
 }
