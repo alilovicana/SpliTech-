@@ -6,10 +6,33 @@ import { MainServiceService } from 'src/app/main-service.service';
   templateUrl: './cover-green.component.html',
   styleUrls: ['./cover-green.component.css'],
 })
-export class CoverGreenComponent {
+export class CoverGreenComponent implements OnInit {
   public mainManuVisible: boolean = false;
-  constructor(public $service: MainServiceService) {}
+  public currentStyleIndex: number = 0;
+  public styles: string[] = ['styleGreen', 'styleBlue'];
 
+  public imagesIzbornik: string[] = [
+    '../../../assets/blueIzbornik.svg',
+    '../../../assets/greenIzbornik.svg',
+  ];
+  public currentImageIndex: number = 0;
+
+  public imagesArrow: string[] = [
+    '../../../assets/blueStrelica.svg',
+    '../../../assets/greenStrelica.svg',
+  ];
+  public currentArrowIndex: number = 0;
+  constructor(public $service: MainServiceService) {}
+  ngOnInit() {
+    setInterval(() => {
+      this.currentArrowIndex =
+        (this.currentArrowIndex + 1) % this.imagesArrow.length;
+      this.currentStyleIndex =
+        (this.currentStyleIndex + 1) % this.styles.length;
+      this.currentImageIndex =
+        (this.currentImageIndex + 1) % this.imagesIzbornik.length;
+    }, 3000);
+  }
   openMainManu() {
     this.mainManuVisible = !this.mainManuVisible;
   }

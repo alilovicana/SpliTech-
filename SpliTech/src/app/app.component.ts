@@ -41,57 +41,5 @@ export class AppComponent implements OnInit {
     const viewportHeight = window.innerHeight;
     const totalHeight = document.body.clientHeight;
 
-    if (
-      this.coverGreen &&
-      this.coverBlue &&
-      this.mainComponent &&
-      this.mainManu &&
-      this.goFor &&
-      this.future &&
-      this.secondLine &&
-      this.logo
-    ) {
-      if (
-        scrollY >= viewportHeight &&
-        scrollY <= totalHeight - viewportHeight 
-      ) {
-        if (
-          scrollY >= viewportHeight &&
-          scrollY <= totalHeight - viewportHeight * 2
-        ) {
-          this.mainComponent.style.opacity = '1';
-          this.coverGreen.style.opacity = '0'; ///////coverBlue
-          this.mainManu.style.opacity = '0';
-          this.coverBlue.style.opacity = '1';
-          this.coverBlue.style.position = 'sticky';
-          this.secondLine.style.opacity = '1';
-          this.logo.style.opacity = '1';
-        } else {
-            this.mainComponent.style.opacity = '1';
-            this.coverGreen.style.opacity = '0';
-            this.mainManu.style.opacity = '0';
-            this.coverBlue.style.opacity = '1';
-            this.coverBlue.style.position = 'sticky';
-            this.goFor.classList.add('windowAnimationGoFor');
-            this.future.classList.add('windowAnimationFuture'); //scrollDown
-            this.secondLine.style.opacity = '0';
-            this.logo.style.opacity = '0';
-            this.goFor.style.position='sticky';
-            this.future.style.position='sticky';
-        }
-    
-      } else if (scrollY >= 0 && scrollY < totalHeight - viewportHeight * 3) {
-        this.coverGreen.style.opacity = '1';
-        this.mainManu.style.opacity = '0';
-        this.mainComponent.style.opacity = '0';
-        this.coverBlue.style.opacity = '0';
-        this.coverGreen.style.position = 'sticky'; ///////coverGreen
-      } else {
-        this.coverGreen.style.opacity = '0';
-        this.mainManu.style.opacity = '1';
-        this.mainComponent.style.opacity = '1';
-        this.coverBlue.style.opacity = '0';
-      }
-    }
   }
 }
