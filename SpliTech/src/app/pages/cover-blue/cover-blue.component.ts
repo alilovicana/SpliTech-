@@ -14,7 +14,7 @@ import { IsVisibleService } from 'src/app/is-visible.service';
 })
 export class CoverBlueComponent {
   viewportHeight?: number;
-  scrollY?: number;
+  scrollY?: number=0;
 
   constructor(
     public $service: MainServiceService,
@@ -33,6 +33,6 @@ export class CoverBlueComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event) {
-    const scrollY = window.scrollY;
+    this.scrollY = window.scrollY;
   }
 }

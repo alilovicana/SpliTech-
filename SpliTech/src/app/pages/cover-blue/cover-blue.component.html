@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container"  *ngIf="scrollY && viewportHeight" >
     <div class="logoMenu">
-      <div class="logo" id="logo"><img src="../../../assets/logoBijeli.svg" /></div>
-      <div class="menu">
+      <div class="logo" [ngClass]="{'opacity': scrollY > viewportHeight}" id="logo"><img src="../../../assets/logoBijeli.svg" /></div>
+      <div class="menu" [ngClass]="{'opacity': scrollY > viewportHeight}">
         <img src="../../../assets/greenIzbornik.svg" (click)="toggleIsVisible()"/>
       </div>
     </div>
-    <div class="title" >
-      <div class="firstLine" id="goFor">GO FOR</div> 
+    <div class="title">
+      <div class="firstLine" [ngClass]="{'goForAnimation': scrollY > viewportHeight}" id="goFor">GO FOR</div> 
       <div class="applyNow"><img src="../../../assets/applyNow.svg"></div>
-      <div class="secondLine"  id="secondLine">{{spliTech2023}}<span class="longLine"></span>{{spliTech2024}}</div>
+      <div class="secondLine"  [ngClass]="{'opacity': scrollY > viewportHeight}" id="secondLine">{{spliTech2023}}<span class="longLine"></span>{{spliTech2024}}</div>
       <div class="futureArrow">
-        <div class="tirthLine" id="future">FUTURE!</div>
+        <div class="tirthLine" [ngClass]="{'futureAnimation': scrollY > viewportHeight}"id="future">FUTURE!</div>
         <div class="arrow">
           <img src="../../../assets/greenStrelica.svg" />
         </div>

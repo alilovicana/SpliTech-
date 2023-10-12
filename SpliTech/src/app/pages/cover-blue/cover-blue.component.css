@@ -7,6 +7,7 @@
   background-position: center;
   padding: 2% 5% 5% 15%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .logo img {
   width: 150px;
@@ -50,8 +51,20 @@
 }
 .firstLine {
   position: relative;
+ 
 }
 .applyNow {
   position: absolute;
   left: 73%;
+}
+.goForAnimation{
+  transform: translateY(-25vh);
+  transition: transform 1s ease;
+}
+.futureAnimation{
+  transform: translateY(45vh);
+  transition: transform 1s ease;
+}
+.opacity{
+  opacity: 0;
 }
