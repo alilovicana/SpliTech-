@@ -14,7 +14,9 @@
   font-family: "Varent Grotesk";
 }
 .exit {
-  padding-left: 80%;
+  display: inline-block;
+  position:relative;
+  left:40%;
   width: 100px;
   height: 100px;
 }

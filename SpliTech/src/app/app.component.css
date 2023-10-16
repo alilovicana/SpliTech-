@@ -1,0 +1,9 @@
+@font-face {
+    font-family: font;
+    src: url('../assets/Everett-Medium.otf');
+}
+
+@font-face {
+    font-family: font-light;
+    src: url('../assets/Everett-Light.otf');
+}

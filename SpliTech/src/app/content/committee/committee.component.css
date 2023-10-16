@@ -1,0 +1,19 @@
+@import url('../chairs/chairs.component.css');
+.dropper {
+    font-family: font;
+    font-size: 22px;
+    text-decoration: underline;
+    cursor: pointer;
+    color:white;
+}
+ul {
+    list-style-type: circle;
+}
+li {
+    font-family: font;
+    display: list-item !important;
+    line-height: 20px;
+    list-style: circle;
+    overflow: visible;
+    color:white;
+}

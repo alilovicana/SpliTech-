@@ -1,14 +1,4 @@
-/*Cover Blue still*/
-  
-:host {
-  position: static;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: #0b2240;
-  transition: opacity 0.5s ease; 
-}.container {
+.container {
     min-height: 100vh;
     width: 100%;
     padding-top: 50vh;
@@ -99,13 +89,15 @@
     justify-content: center;
     align-items: center;
     min-height: 45vh;
-    background-color: azure;
+    background-color:transparent;
+    border-color: rgba(222, 234, 234, 0);
+    border: 2px solid #4bcb5e;
     border-radius: 20px;
     margin-bottom: 3%;
-    margin-bottom: 200px;
-    background-image: url("../../../assets/img-0015.jpg");
+    padding: 50px;
+    /* background-image: url("../../../assets/img-0015.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center; */
   }
   .nine {
     font-family: "Varent Grotesk Bold";
@@ -131,4 +123,9 @@
   .virtualAcess{
    position: relative;
    top:150px;
+  }
+  .nameOfContentSection{
+    color:#4bcb5e;
+    font-size: 5em;
+    text-transform: uppercase;
   }
