@@ -12,6 +12,7 @@
   padding: 2%;
   box-sizing: border-box;
   font-family: "Varent Grotesk";
+  cursor: pointer;
 }
 .exit {
   display: inline-block;

@@ -30,7 +30,6 @@ export class CoverBlueComponent {
   toggleIsVisible() {
     this.$isVisible.toggleVisible();
   }
-
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event) {
     this.scrollY = window.scrollY;

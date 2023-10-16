@@ -22,7 +22,8 @@
     align-self: flex-start;
     padding-left: 30px;
     overflow: visible;
-}.comitee-member {
+}
+.comitee-member {
     display: flex;
     flex-direction: column;
     justify-content: center;

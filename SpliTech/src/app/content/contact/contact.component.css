@@ -1,18 +1,21 @@
 .footer {
- 
-  padding: 80px;
-  padding-bottom: 200px;
   background-color: #4bcb5e;
-  background-size: cover;
   color: white;
-  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-size: contain;
+  height:100%; 
+  width: 100%;
+  border-radius: 17px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
-.content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100em;
-}
+
 .icon {
   width: 30px;
   height: 30px;
