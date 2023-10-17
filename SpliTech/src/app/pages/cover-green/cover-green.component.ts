@@ -34,9 +34,9 @@ export class CoverGreenComponent implements OnInit {
         (this.currentImageIndex + 1) % this.imagesIzbornik.length;
     }, 3000);
   }
- toggleVisible(){
-  this.$isVisible.toggleVisible();
- }
+  toggleVisible(){
+      this.$isVisible.toggleVisible();
+   }
   spliTech2023 = this.$service.spliTech2023;
   spliTech2024 = this.$service.spliTech2024;
 }

@@ -68,3 +68,10 @@
 .opacity{
   opacity: 0;
 }
+.arrowAnimation{
+  transform: translateY(30vh);
+  transition: transform 1s ease;
+}
+/* .fixedComponent{
+  position:fixed;
+} */

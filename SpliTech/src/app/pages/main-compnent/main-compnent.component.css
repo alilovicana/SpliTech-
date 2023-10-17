@@ -61,11 +61,6 @@
     top: 35%;
   }
 
-  /*heroPage*/
-  .contents{
-    height: 250vh;
-    width: 100%;
-  }
   .content{
     height: calc(75vh * 4);
     width: 100%;

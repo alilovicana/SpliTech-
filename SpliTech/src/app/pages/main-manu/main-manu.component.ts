@@ -18,11 +18,12 @@ export class MainManuComponent {
   
   navigateTo(path: string) {
     if(this.$isNotVisible.isVisible=true){
-      this.$isNotVisible.toggleVisible();
       this.router.navigate([path]);
-      this.scrollToAnchor('contentId');
+      this.$isNotVisible.toggleVisible();
+      setTimeout(() => {
+        //@ts-ignore
+       document.getElementById('contentId').scrollIntoView();
+     }, 100);
     }
   }
-  
-  
 }
