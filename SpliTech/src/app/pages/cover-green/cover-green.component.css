@@ -2,6 +2,10 @@
   height: 100vh;
   width: 100%;
   padding: 2% 5% 5% 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: hidden;
 }
 .logo img {
   width: 150px;
@@ -12,13 +16,20 @@
   justify-content: space-between;
   text-align: center;
 }
+.menu{
+  position: absolute;
+  left: 90%;
+  top:10%;
+}
 .futureArrow {
   display: flex;
   justify-content: space-between;
   text-align: center;
 }
 .arrow {
-  padding-top: 13%;
+position: absolute;
+left: 90%;
+top:70%;
 }
 .firstLine,
 .tirthLine {
@@ -63,12 +74,69 @@
   transition: ease 1s;
   color: #4bcb5e;
   .longLine {
-    background-color:  #4bcb5e;
+    background-color: #4bcb5e;
   }
 }
 
-.canvas{
-  width:100vw;
-  height:0px;
+.canvas {
+  width: 100%;
+  height: 0px;
+  overflow: auto;
   background-color: rebeccapurple;
+}
+/* content unutar canve*/
+.mainContent {
+  display: flex;
+  text-align: center;
+  max-height: 50vh;
+  margin-bottom: 500px;
+}
+.mainContentPlayGround {
+  display: flex;
+  text-align: center;
+  height: 45vh;
+  margin-bottom: 200px;
+  position: relative;
+}
+.mainContentContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 45vh;
+  background-color: transparent;
+  border-color: rgba(222, 234, 234, 0);
+  border: 2px solid #4bcb5e;
+  border-radius: 20px;
+  margin-bottom: 3%;
+  padding: 50px;
+  position: relative;
+}
+.nine {
+  font-family: "Varent Grotesk Bold";
+  font-size: 50em;
+  color: white;
+  position: relative;
+  top: -230px;
+  z-index: 1;
+}
+.conferenceName {
+  position: relative;
+  top: 150px;
+  color: #4bcb5e;
+  font-size: 4vw;
+  font-family: "Varent Grotesk Bold";
+}
+.programme {
+  position: absolute;
+  top: -170px;
+  left: 100px;
+}
+.virtualAcess {
+  position: relative;
+  top: 150px;
+}
+.nameOfContentSection {
+  color: #4bcb5e;
+  font-size: 5em;
+  text-transform: uppercase;
 }

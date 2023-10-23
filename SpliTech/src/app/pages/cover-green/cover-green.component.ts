@@ -11,7 +11,7 @@ export class CoverGreenComponent implements OnInit {
   public mainManuVisible: boolean = false;
   public currentStyleIndex: number = 0;
   public styles: string[] = ['styleGreen', 'styleBlue'];
-  scrollY: number=0;
+  scrollY: number = 0;
 
   public imagesIzbornik: string[] = [
     '../../../assets/blueIzbornik.svg',
@@ -29,14 +29,6 @@ export class CoverGreenComponent implements OnInit {
     public $isVisible: IsVisibleService
   ) {}
   ngOnInit() {
-    setInterval(() => {
-      this.currentArrowIndex =
-        (this.currentArrowIndex + 1) % this.imagesArrow.length;
-      this.currentStyleIndex =
-        (this.currentStyleIndex + 1) % this.styles.length;
-      this.currentImageIndex =
-        (this.currentImageIndex + 1) % this.imagesIzbornik.length;
-    }, 3000);
     this.animationFunction();
   }
   toggleVisible() {
@@ -44,51 +36,59 @@ export class CoverGreenComponent implements OnInit {
   }
   spliTech2023 = this.$service.spliTech2023;
   spliTech2024 = this.$service.spliTech2024;
+
+  onlyBlueApperance() {
+    this.currentArrowIndex = 1;
+    this.currentStyleIndex = 1;
+    this.currentImageIndex = 1;
+  }
   animationFunction() {
+    let intervalId: any;
+
+    const changeAppearance = () => {
+      this.currentArrowIndex =
+        (this.currentArrowIndex + 1) % this.imagesArrow.length;
+      this.currentStyleIndex =
+        (this.currentStyleIndex + 1) % this.styles.length;
+      this.currentImageIndex =
+        (this.currentImageIndex + 1) % this.imagesIzbornik.length;
+    };
+
+    intervalId = setInterval(changeAppearance, 3000);
+
     document.addEventListener(
       'wheel',
       (event) => {
         event.preventDefault();
         event.stopPropagation();
         this.scrollY += event.deltaY;
-        console.log("Delta: " + event.deltaY);
-        console.log("ScrollY: " + this.scrollY);
-        this.scrollY = this.scrollY < 0 ? 0 : this.scrollY > 5000 ? 5000 : this.scrollY;
-        document.getElementById("canvas")!.style.height = Math.floor(this.scrollY / 10) + "px"
-        // this.myMove();
+        console.log('Delta: ' + event.deltaY);
+        console.log('ScrollY: ' + this.scrollY);
+        this.myMove();
+        // this.scrollY =
+        //   this.scrollY < 0 ? 0 : this.scrollY > 7000 ? 7000 : this.scrollY;
+        document.getElementById('canvas')!.style.height =
+          Math.floor(this.scrollY / 10) + 'px';
+
+        if (this.scrollY === 0) {
+          clearInterval(intervalId);
+          intervalId = setInterval(changeAppearance, 3000);
+        } else {
+          this.onlyBlueApperance();
+          clearInterval(intervalId);
+        }
       },
-      { passive: false}
+      { passive: false }
     );
   }
-  myMove() {
-    let id: any = null;
-    const elem = document.getElementById('canvas');
-    let pos = 0;
 
-    if (elem) {
-      clearInterval(id);
-      if (scrollY == 2300) {
-        clearInterval(id);
-        pos = 0; ///kraj animacije
-      } else if (scrollY <=10) {
-        pos++;
-        if (elem) {
-          elem.style.height = '100vh'; //razmak
-          elem.style.backgroundColor = 'yellow';
-        }
-      } else if ( scrollY > 10) {
-        pos++;
-        if (elem) {
-          elem.style.height = '1vh'; //dolazak 9
-        }
-      } else if (scrollY <=-1) {
-        pos++;
-        if (elem) {
-          elem.style.height = '10vh'; //dolazak contenta
-        }
-      }
+  myMove() {
+    if (this.scrollY < 0) {
+      this.scrollY = 0;
+    } else if (this.scrollY > 7000) {
+      this.scrollY = 7000;
     } else {
-      console.error("Element 'canvas' not found.");
+      this.scrollY;
     }
   }
 }
