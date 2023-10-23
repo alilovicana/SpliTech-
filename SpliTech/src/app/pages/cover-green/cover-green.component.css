@@ -66,3 +66,9 @@
     background-color:  #4bcb5e;
   }
 }
+
+.canvas{
+  width:100vw;
+  height:0px;
+  background-color: rebeccapurple;
+}
