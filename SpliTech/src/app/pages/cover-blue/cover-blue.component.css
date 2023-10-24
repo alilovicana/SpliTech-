@@ -33,14 +33,14 @@
 .tirthLine {
   font-size: 13vw;
   color: #4bcb5e;
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
   font-weight: bold;
   transition: transform 1s ease;
 }
 .secondLine {
   color: white;
   font-size: x-large;
-  font-family: "Everett Regular";
+  font-family: "fontEveret";
 }
 .longLine {
   display: inline-block;

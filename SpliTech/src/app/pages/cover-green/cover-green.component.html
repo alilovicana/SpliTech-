@@ -4,7 +4,7 @@
      
     </div>
     <div class="title">
-      <div class="firstLine">GO FOR</div> 
+      <div class="firstLine" id="goFor">GO FOR</div> 
       <div class="menu" id="menu" (click)="toggleVisible()">
         <img [src]="imagesIzbornik[currentImageIndex]" style="transition: ease 1s;" />
       </div>
@@ -12,9 +12,7 @@
       <div class="arrow">
         <img [src]="imagesArrow[currentArrowIndex]" style="transition: ease 1s;"/>
       </div>
- 
       <div class="canvas" id="canvas">
-        
         <div class="mainContent">
           <div class="nine"  data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="180">9</div>
           <div class="conferenceName" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
@@ -32,10 +30,9 @@
           <router-outlet></router-outlet>
         </div>
       </div>
-      
       <div class="secondLine">{{spliTech2023}}<span class="longLine"></span>{{spliTech2024}}</div>
       <div class="futureArrow">
-        <div class="tirthLine">FUTURE!</div>
+        <div class="tirthLine" id="future">FUTURE!</div>
         
       </div>
     </div>

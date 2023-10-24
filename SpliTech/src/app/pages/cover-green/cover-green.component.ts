@@ -12,7 +12,7 @@ export class CoverGreenComponent implements OnInit {
   public currentStyleIndex: number = 0;
   public styles: string[] = ['styleGreen', 'styleBlue'];
   scrollY: number = 0;
-
+  scrollYInner: number = 0;
   public imagesIzbornik: string[] = [
     '../../../assets/blueIzbornik.svg',
     '../../../assets/greenIzbornik.svg',
@@ -62,11 +62,10 @@ export class CoverGreenComponent implements OnInit {
         event.preventDefault();
         event.stopPropagation();
         this.scrollY += event.deltaY;
+        this.scrollYInner += event.deltaY;
         console.log('Delta: ' + event.deltaY);
         console.log('ScrollY: ' + this.scrollY);
         this.myMove();
-        // this.scrollY =
-        //   this.scrollY < 0 ? 0 : this.scrollY > 7000 ? 7000 : this.scrollY;
         document.getElementById('canvas')!.style.height =
           Math.floor(this.scrollY / 10) + 'px';
 
@@ -86,7 +85,11 @@ export class CoverGreenComponent implements OnInit {
     if (this.scrollY < 0) {
       this.scrollY = 0;
     } else if (this.scrollY > 7000) {
-      this.scrollY = 7000;
+      this.scrollY=7000;
+
+      const scrollAmount = this.scrollYInner - 7000;
+      const canvas = document.getElementById('canvas');
+      canvas!.scrollTop =scrollAmount;
     } else {
       this.scrollY;
     }

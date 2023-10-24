@@ -7,6 +7,14 @@
   font-family: font-light;
   src: url("../assets/Everett-Light.otf");
 }
+@font-face {
+  font-family: fontVarent;
+  src: url("../assets/VarentGrotesk-Bold.otf");
+}
+@font-face {
+  font-family: fontEveret;
+  src: url("../assets/Everett-Regular.otf");
+}
 * {
   flex-shrink: 0;
   color: white;

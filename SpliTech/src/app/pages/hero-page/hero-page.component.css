@@ -19,7 +19,7 @@
   padding-left: 58vh;
 }
 .nine {
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
   font-size: 50em;
   color: white;
   position: relative;
@@ -32,12 +32,12 @@
 
   color: #4bcb5e;
   font-size: 4vw;
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
 }
 .firstLine {
   font-size: 13vw;
   color: #4bcb5e;
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
 }
 .mainContent {
   display: flex;
@@ -64,7 +64,7 @@
 .future {
   font-size: 13vw;
   color: #4bcb5e;
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
   bottom: -100px;
 }
 .secArrow {
@@ -78,7 +78,7 @@
 .secondLine {
   color: white;
   font-size: x-large;
-  font-family: "Everett Regular";
+  font-family: "fontEveret";
   padding-top: 4vh;
   position: sticky;
 }

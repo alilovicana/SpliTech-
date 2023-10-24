@@ -32,13 +32,13 @@
   .tirthLine {
     font-size: 13vw;
     color: #4bcb5e;
-    font-family: "Varent Grotesk Bold";
+    font-family: "fontVarent";
     font-weight: bold;
   }
   .secondLine {
     color: white;
     font-size: x-large;
-    font-family: "Everett Regular";
+    font-family: "fontEveret";
   }
   .longLine {
     display: inline-block;
@@ -95,7 +95,7 @@
     background-position: center; */
   }
   .nine {
-    font-family: "Varent Grotesk Bold";
+    font-family: "fontVarent";
     font-size: 50em;
     color: white;
     position: relative;
@@ -108,7 +108,7 @@
   
     color: #4bcb5e;
     font-size: 4vw;
-    font-family: "Varent Grotesk Bold";
+    font-family: "fontVarent";
   }
   .programme{
     position: absolute;

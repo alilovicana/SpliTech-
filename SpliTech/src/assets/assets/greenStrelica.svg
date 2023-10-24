@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 71" width="57" height="71">
+	<title>Strelica-svg</title>
+	<style>
+		.s0 { fill: none;stroke: #4bcb5e;stroke-width: 5.7 } 
+	</style>
+	<g id="Layer">
+		<path id="Layer" fill-rule="evenodd" class="s0" d="m48 45.3c-9.2 0-16.7 7.5-16.7 16.7"/>
+		<path id="Layer" fill-rule="evenodd" class="s0" d="m12 45.3c9.2 0 16.7 7.5 16.7 16.7"/>
+		<path id="Layer" class="s0" d="m30 8.6v49"/>
+	</g>
+</svg>

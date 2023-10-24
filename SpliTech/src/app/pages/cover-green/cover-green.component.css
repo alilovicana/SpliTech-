@@ -34,14 +34,14 @@ top:70%;
 .firstLine,
 .tirthLine {
   font-size: 13vw;
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
   font-weight: bold;
   position: relative;
 }
 .secondLine {
   color: white;
   font-size: x-large;
-  font-family: "Everett Regular";
+  font-family: "fontEveret";
 }
 .longLine {
   display: inline-block;
@@ -80,9 +80,12 @@ top:70%;
 
 .canvas {
   width: 100%;
-  height: 0px;
+  height:0px;
   overflow: auto;
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
+}
+#canvas {
+  transition: transform 0.5s ease; /* Dodajte efekat glatkog prelaza */
 }
 /* content unutar canve*/
 .mainContent {
@@ -112,7 +115,7 @@ top:70%;
   position: relative;
 }
 .nine {
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
   font-size: 50em;
   color: white;
   position: relative;
@@ -124,7 +127,7 @@ top:70%;
   top: 150px;
   color: #4bcb5e;
   font-size: 4vw;
-  font-family: "Varent Grotesk Bold";
+  font-family: "fontVarent";
 }
 .programme {
   position: absolute;
