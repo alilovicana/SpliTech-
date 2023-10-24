@@ -1,11 +1,19 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MainServiceService } from 'src/app/main-service.service';
 import { IsVisibleService } from 'src/app/is-visible.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { CanvaOpenService } from 'src/app/canva-open.service';
 
 @Component({
   selector: 'app-cover-green',
   templateUrl: './cover-green.component.html',
   styleUrls: ['./cover-green.component.css'],
+  animations: [
+    trigger('zoomInUp', [
+      state('void', style({ transform: 'scale(0.5) translateY(1200px)' })),
+      transition('* => *', animate('1s ease-in-out'))
+    ])
+  ]
 })
 export class CoverGreenComponent implements OnInit {
   public mainManuVisible: boolean = false;
@@ -27,22 +35,34 @@ export class CoverGreenComponent implements OnInit {
   public currentArrowIndex: number = 0;
   constructor(
     public $service: MainServiceService,
-    public $isVisible: IsVisibleService
+    public $isVisible: IsVisibleService,
+    public $canvaOpen: CanvaOpenService
   ) {}
   ngOnInit() {
     this.animationFunction();
+    const interval = setInterval(() => {
+      if (this.$canvaOpen.canvaOpen) {
+      this.canvaOpenFunction();
+      }
+    }, 10);
   }
   toggleVisible() {
     this.$isVisible.toggleVisible();
   }
-  spliTech2023 = this.$service.spliTech2023;
   spliTech2024 = this.$service.spliTech2024;
+  spliTech2023 = this.$service.spliTech2023;
 
   onlyBlueApperance() {
     this.currentArrowIndex = 1;
     this.currentStyleIndex = 1;
     this.currentImageIndex = 1;
   }
+  canvaOpenFunction() {
+    const canvas = document.getElementById('canvas');
+    // Povećajte visinu canvas elementa za određeni broj piksela
+    canvas!.style.height = (parseInt(canvas!.style.height) + 1000) + 'px'; // Na primer, povećavamo za 100 piksela
+  }
+  
   animationFunction() {
     let intervalId: any;
 
@@ -65,9 +85,6 @@ export class CoverGreenComponent implements OnInit {
         this.delta = event.deltaY;
         this.scrollY += event.deltaY;
         this.scrollYInner += event.deltaY;
-        console.log('Delta: ' + event.deltaY);
-        console.log('ScrollY: ' + this.scrollY);
-        console.log('ScrollYInner: ' + this.scrollYInner);
         this.myMove();
         document.getElementById('canvas')!.style.height =
           Math.floor(this.scrollY / 10) + 'px';

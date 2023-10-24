@@ -7,6 +7,6 @@ export class MainServiceService {
 
   constructor() { }
   spliTech2023='SpliTech 2023';
-  spliTech2024='Split - Bol, July 20th, 2024';
+  spliTech2024='Split - Bol, June 25-28, 2024';
 
 }

@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { Router } from '@angular/router';
+import { CanvaOpenService } from 'src/app/canva-open.service';
 @Component({
   selector: 'app-main-manu',
   templateUrl: './main-manu.component.html',
   styleUrls: ['./main-manu.component.css'],
 })
 export class MainManuComponent {
-  constructor(public $isNotVisible: IsVisibleService,  public router:Router) {}
+
+  public canvaOpen=this.$canvaOpen.canvaOpen;
+  constructor(public $isNotVisible: IsVisibleService,  public router:Router, public $canvaOpen:CanvaOpenService) {}
+
   scrollToAnchor(contentId: string) {
     const element = document.getElementById(contentId);
     if (element) {
