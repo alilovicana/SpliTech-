@@ -16,10 +16,10 @@
   justify-content: space-between;
   text-align: center;
 }
-.menu{
+.menu {
   position: absolute;
   left: 90%;
-  top:10%;
+  top: 10%;
 }
 .futureArrow {
   display: flex;
@@ -27,9 +27,9 @@
   text-align: center;
 }
 .arrow {
-position: absolute;
-left: 90%;
-top:70%;
+  position: absolute;
+  left: 90%;
+  top: 70%;
 }
 .firstLine,
 .tirthLine {
@@ -80,13 +80,30 @@ top:70%;
 
 .canvas {
   width: 100%;
-  height:0px;
+  height: 0px;
   overflow: auto;
   /* background-color: rebeccapurple; */
 }
 #canvas {
   transition: transform 0.5s ease; /* Dodajte efekat glatkog prelaza */
 }
+
+/* #canvas::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+#canvas::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+#canvas::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#canvas::-webkit-scrollbar-thumb {
+  background: transparent;
+} */
+
 /* content unutar canve*/
 .mainContent {
   display: flex;
