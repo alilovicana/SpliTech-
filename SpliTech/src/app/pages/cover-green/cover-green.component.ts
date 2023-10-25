@@ -1,19 +1,19 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { MainServiceService } from 'src/app/main-service.service';
 import { IsVisibleService } from 'src/app/is-visible.service';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 import { CanvaOpenService } from 'src/app/canva-open.service';
 
 @Component({
   selector: 'app-cover-green',
   templateUrl: './cover-green.component.html',
   styleUrls: ['./cover-green.component.css'],
-  animations: [
-    trigger('zoomInUp', [
-      state('void', style({ transform: 'scale(0.5) translateY(1200px)' })),
-      transition('* => *', animate('1s ease-in-out'))
-    ])
-  ]
 })
 export class CoverGreenComponent implements OnInit {
   public mainManuVisible: boolean = false;
@@ -40,11 +40,13 @@ export class CoverGreenComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.animationFunction();
-    const interval = setInterval(() => {
+
+    setInterval(() => {
       if (this.$canvaOpen.canvaOpen) {
-      this.canvaOpenFunction();
+        this.canvaOpenFunction();
       }
     }, 10);
+    console.log('Canva open ' + this.$canvaOpen.canvaOpen);
   }
   toggleVisible() {
     this.$isVisible.toggleVisible();
@@ -58,11 +60,11 @@ export class CoverGreenComponent implements OnInit {
     this.currentImageIndex = 1;
   }
   canvaOpenFunction() {
-    const canvas = document.getElementById('canvas');
-    // Povećajte visinu canvas elementa za određeni broj piksela
-    canvas!.style.height = (parseInt(canvas!.style.height) + 1000) + 'px'; // Na primer, povećavamo za 100 piksela
+    this.onlyBlueApperance();
+    document.getElementById('canvas')!.style.height =
+      Math.floor(7000 / 10) + 'px';
   }
-  
+
   animationFunction() {
     let intervalId: any;
 
@@ -88,6 +90,10 @@ export class CoverGreenComponent implements OnInit {
         this.myMove();
         document.getElementById('canvas')!.style.height =
           Math.floor(this.scrollY / 10) + 'px';
+
+        //animation on 9 and title of conference
+        const mainContent = document.getElementById('mainContent');
+        mainContent!.style.transform = `scale(${this.scrollY/1700})`;
 
         if (this.scrollY === 0) {
           clearInterval(intervalId);

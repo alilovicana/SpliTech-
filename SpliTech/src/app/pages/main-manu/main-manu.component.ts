@@ -9,9 +9,9 @@ import { CanvaOpenService } from 'src/app/canva-open.service';
 })
 export class MainManuComponent {
 
-  public canvaOpen=this.$canvaOpen.canvaOpen;
   constructor(public $isNotVisible: IsVisibleService,  public router:Router, public $canvaOpen:CanvaOpenService) {}
 
+  public canvaOpen=this.$canvaOpen.canvaOpen;
   scrollToAnchor(contentId: string) {
     const element = document.getElementById(contentId);
     if (element) {

@@ -103,9 +103,15 @@
 /* content unutar canve*/
 .mainContent {
   display: flex;
+  justify-content:center;
+  align-items: end;
   text-align: center;
   max-height: 50vh;
-  margin-bottom: 500px;
+  margin-bottom: 1000px;
+  transition: transform 0.3 ease-in 15s;
+  position: relative;
+  top:200px;
+  right: 100px;
 }
 .mainContentPlayGround {
   display: flex;
@@ -129,17 +135,15 @@
 }
 .nine {
   font-family: "fontVarent";
-  font-size: 50em;
+  font-size: 130px;
   color: white;
   position: relative;
-  top: -230px;
+  top:30px;
   z-index: 1;
 }
 .conferenceName {
-  position: relative;
-  top: 150px;
   color: #4bcb5e;
-  font-size: 4vw;
+  font-size: 20px;
   font-family: "fontVarent";
 }
 .programme {
