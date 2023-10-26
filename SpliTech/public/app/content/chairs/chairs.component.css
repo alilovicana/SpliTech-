@@ -1,0 +1,62 @@
+.comitee {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: visible;
+}
+
+.comitee-subtitle {
+    z-index: 3;
+    margin-top: 80px;
+    color: white;
+    font-family: font;
+    font-size: 82px;
+    letter-spacing: 15px;
+    /* white-space: nowrap; */
+    padding: 8px;
+    position: relative;
+    text-align: start;
+    align-self: flex-start;
+    padding-left: 30px;
+    overflow: visible;
+}
+.comitee-member {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    overflow: visible;
+    position: relative;
+}
+.comitee-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.comitee-name {
+    font-family: font;
+    font-size: 24px;
+    color: white;
+    margin-top: 10px;
+    z-index: 3;
+}
+
+.comitee-line {
+    width: 30px;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    z-index: 3;
+}
+
+.comitee-title {
+    color: white;
+    font-family: font-light;
+    font-size: 20px;
+    margin-top: 10px;
+    z-index: 3;
+}

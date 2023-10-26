@@ -1,0 +1,76 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../../assets/greenBackground-svg.svg");
+  background-size: cover;
+  background-position: center;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  color: #0b2240;
+  font-size: 4em;
+  padding: 2%;
+  box-sizing: border-box;
+  font-family: "fontEveret";
+  cursor: pointer;
+}
+.exit {
+  display: inline-block;
+  position:relative;
+  left:40%;
+  width: 100px;
+  height: 100px;
+}
+@media (max-width: 700px) {
+  .content {
+    font-size: 5em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+  .content div {
+    padding: 2%;
+  }
+  .exit {
+    float: right;
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 500px) {
+  .content {
+    font-size: 3.5em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+  .content div {
+    padding: 2%;
+  }
+  .exit {
+    float: right;
+ 
+  }
+  .exit img{
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+@media (max-width: 400px) {
+  
+  .content {
+    font-size: 2em;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    
+  }
+  .content div {
+    padding: 2%;
+  }
+  .exit img {
+    width: 2em;
+    height: 2em;
+  }
+}
