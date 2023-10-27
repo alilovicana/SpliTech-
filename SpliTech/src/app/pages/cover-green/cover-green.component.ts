@@ -1,7 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MainServiceService } from 'src/app/main-service.service';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { CanvaOpenService } from 'src/app/canva-open.service';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cover-green',
@@ -15,7 +16,7 @@ export class CoverGreenComponent implements OnInit {
   scrollY: number = 0;
   scrollYInner: number = 0;
   delta: number = 0;
-  canvaOpen?:boolean;
+  canvaOpen?: boolean;
   public imagesIzbornik: string[] = [
     '../../../assets/blueIzbornik.svg',
     '../../../assets/greenIzbornik.svg',
@@ -29,16 +30,27 @@ export class CoverGreenComponent implements OnInit {
   public currentArrowIndex: number = 0;
   spliTech2024 = this.$service.spliTech2024;
   spliTech2023 = this.$service.spliTech2023;
+
+  canvasHeight?: string;
+  canvasHeigthNumber?: number;
+
   constructor(
     public $service: MainServiceService,
     public $isVisible: IsVisibleService,
-    public $canvaOpen: CanvaOpenService
+    public $canvaOpen: CanvaOpenService,
+    private elementRef: ElementRef
   ) {}
   ngOnInit() {
     this.animationFunction();
     this.$canvaOpen.get().subscribe((value) => {
       this.canvaOpen = value;
     });
+    // variable from CSS
+    const hostElement = this.elementRef.nativeElement;
+    this.canvasHeight =
+      getComputedStyle(hostElement).getPropertyValue('--canvas-height');
+    this.canvasHeigthNumber = parseInt(this.canvasHeight);
+    console.log(this.canvasHeight);
   }
   toggleVisible() {
     this.$isVisible.toggleVisible();
@@ -76,7 +88,7 @@ export class CoverGreenComponent implements OnInit {
 
         //animation on 9 and title of conference
         const mainContent = document.getElementById('mainContent');
-        mainContent!.style.transform = `scale(${this.scrollY/1700})`;
+        mainContent!.style.transform = `scale(${this.scrollY / 1700})`;
 
         if (this.scrollY === 0) {
           clearInterval(intervalId);
@@ -91,27 +103,28 @@ export class CoverGreenComponent implements OnInit {
   }
 
   myMove() {
-    if (this.scrollY < 0) {
-      this.scrollY = 0;
-    } else if (this.scrollY > 7000) {
-      this.scrollY = 7000;
-      let canvas = document.getElementById('canvas');
-      canvas!.scrollTop =this.scrollYInner - 7000;
-    }
-    /**if we have scrollUp */
-    else if (this.delta < 0) {
-      const canvas = document.getElementById('canvas');
-      if (canvas!.scrollTop === 0) {
-        this.scrollY;
-      } else {
-        this.scrollY = 7000;
+    if(this.canvasHeigthNumber){
+      if (this.scrollY < 0) {
+        this.scrollY = 0;
+      } else if (this.scrollY > this.canvasHeigthNumber) {
+        this.scrollY = this.canvasHeigthNumber;
         let canvas = document.getElementById('canvas');
-        canvas!.scrollTop =this.scrollYInner - 7000;
+        canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
+      } else if (this.delta < 0) {
+        /**if we have scrollUp */
+        const canvas = document.getElementById('canvas');
+        if (canvas!.scrollTop === 0) {
+          this.scrollY;
+        } else {
+          this.scrollY = this.canvasHeigthNumber;
+          let canvas = document.getElementById('canvas');
+          canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
+        }
+      } else {
+        this.scrollY;
+        let canvas = document.getElementById('canvas');
+        canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
       }
-    }else {
-      this.scrollY;
-      let canvas = document.getElementById('canvas');
-      canvas!.scrollTop =this.scrollYInner - 7000;
     }
   }
   /**upload all elements in DOM */
@@ -124,10 +137,10 @@ export class CoverGreenComponent implements OnInit {
       let contentId = document.getElementById('contentId');
       this.onlyBlueApperance();
       if (canvas) {
-        canvas.style.height = '7000px';
-          if (contentId) {
-            contentId.scrollIntoView();
-          }
+        canvas.style.height = 'canvasHeightpx';
+        if (contentId) {
+          contentId.scrollIntoView();
+        }
       }
       console.log('evo me u cover green');
     }

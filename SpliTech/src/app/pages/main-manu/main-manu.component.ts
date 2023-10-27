@@ -27,7 +27,7 @@ export class MainManuComponent {
   }
   canvaOpenFunction() {
     document.getElementById('canvas')!.style.height =
-      Math.floor(7000 / 10) + 'px';
+      Math.floor(7000/ 10) + 'px';
   }
   navigateTo(path: string) {
     if (this.$isNotVisible.isVisible) {

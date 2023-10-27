@@ -90,13 +90,13 @@ export class CoverGreenComponent implements OnInit {
   myMove() {
     if (this.scrollY < 0) {
       this.scrollY = 0;
-    } else if (this.scrollY > 7000) {
-      this.scrollY = 7000;
+    } else if (this.scrollY > canvasHeight) {
+      this.scrollY = canvasHeight;
       let canvas = document.getElementById('canvas');
-      canvas!.scrollTop =this.scrollYInner - 7000;
+      canvas!.scrollTop =this.scrollYInner - canvasHeight;
     }
     //  else if ( this.$canvaOpen.canvaOpen==true) {
-    //   this.scrollY=7000;
+    //   this.scrollY=canvasHeight;
     //   let canvas = document.getElementById('canvas');
     //   canvas!.scrollTop =10000;
     //   setTimeout(() => {
@@ -110,14 +110,14 @@ export class CoverGreenComponent implements OnInit {
       if (canvas!.scrollTop === 0) {
         this.scrollY;
       } else {
-        this.scrollY = 7000;
+        this.scrollY = canvasHeight;
         let canvas = document.getElementById('canvas');
-        canvas!.scrollTop =this.scrollYInner - 7000;
+        canvas!.scrollTop =this.scrollYInner - canvasHeight;
       }
     } else {
       this.scrollY;
       let canvas = document.getElementById('canvas');
-      canvas!.scrollTop =this.scrollYInner - 7000;
+      canvas!.scrollTop =this.scrollYInner - canvasHeight;
     }
   }
 }
