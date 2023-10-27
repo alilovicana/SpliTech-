@@ -8,16 +8,12 @@ import { CanvaOpenService } from 'src/app/canva-open.service';
   templateUrl: './main-manu.component.html',
   styleUrls: ['./main-manu.component.css'],
 })
-export class MainManuComponent implements OnInit{
+export class MainManuComponent {
   constructor(
     public $isNotVisible: IsVisibleService,
     public router: Router,
     public $canvaOpen: CanvaOpenService
   ) {}
-  ngOnInit(): void {
-    this.$canvaOpen.canvaOpen=false;
-    console.log('openCanvas', this.$canvaOpen.canvaOpen)
-  }
   scrollToAnchor(contentId: string) {
     const element = document.getElementById(contentId);
     if (element) {
@@ -37,8 +33,7 @@ export class MainManuComponent implements OnInit{
     if (this.$isNotVisible.isVisible) {
       this.router.navigate([path]).then(() => {
         this.$isNotVisible.toggleVisible();
-        this.$canvaOpen.canvaOpen = true;
-        console.log('openCanvas', this.$canvaOpen.canvaOpen)
+        this.$canvaOpen.set(true);
       });
      
     }

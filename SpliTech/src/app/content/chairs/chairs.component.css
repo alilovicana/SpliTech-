@@ -60,3 +60,23 @@
     margin-top: 10px;
     z-index: 3;
 }
+@media screen and (max-width: 800px) {
+    .comitee-subtitle {
+        font-size: 40px;
+        letter-spacing: 2px;
+        padding-left: 50px;
+    }
+    .comitee-subtitle#registration{
+        font-size: 35px;
+        padding-left: 20px;
+    }
+    .comitee-subtitle#organization{
+        font-size: 35px;
+        padding-left: 20px;
+    }
+    .dropper {
+        font-size: 16px;
+        padding-left: 25px;
+    }
+    
+}

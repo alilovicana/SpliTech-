@@ -42,3 +42,10 @@
 .linkedin-icon {
   background-image: url("https://img.icons8.com/material/344/linkedin--v1.png");
 }
+@media screen and (max-width:800px) {
+  .footer {
+    width:300px;
+    left:-100%;
+    border: transparent;
+  }
+}

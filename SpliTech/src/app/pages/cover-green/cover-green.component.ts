@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MainServiceService } from 'src/app/main-service.service';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { CanvaOpenService } from 'src/app/canva-open.service';
@@ -15,6 +15,7 @@ export class CoverGreenComponent implements OnInit {
   scrollY: number = 0;
   scrollYInner: number = 0;
   delta: number = 0;
+  canvaOpen?:boolean;
   public imagesIzbornik: string[] = [
     '../../../assets/blueIzbornik.svg',
     '../../../assets/greenIzbornik.svg',
@@ -26,6 +27,8 @@ export class CoverGreenComponent implements OnInit {
     '../../../assets/greenStrelica.svg',
   ];
   public currentArrowIndex: number = 0;
+  spliTech2024 = this.$service.spliTech2024;
+  spliTech2023 = this.$service.spliTech2023;
   constructor(
     public $service: MainServiceService,
     public $isVisible: IsVisibleService,
@@ -33,13 +36,13 @@ export class CoverGreenComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.animationFunction();
+    this.$canvaOpen.get().subscribe((value) => {
+      this.canvaOpen = value;
+    });
   }
   toggleVisible() {
     this.$isVisible.toggleVisible();
   }
-  spliTech2024 = this.$service.spliTech2024;
-  spliTech2023 = this.$service.spliTech2023;
-
   onlyBlueApperance() {
     this.currentArrowIndex = 1;
     this.currentStyleIndex = 1;
@@ -95,16 +98,7 @@ export class CoverGreenComponent implements OnInit {
       let canvas = document.getElementById('canvas');
       canvas!.scrollTop =this.scrollYInner - 7000;
     }
-    //  else if ( this.$canvaOpen.canvaOpen==true) {
-    //   this.scrollY=7000;
-    //   let canvas = document.getElementById('canvas');
-    //   canvas!.scrollTop =10000;
-    //   setTimeout(() => {
-    //     //@ts-ignore
-    //     document.getElementById('contentId').scrollIntoView();
-    //   }, 100);
-    //   console.log('evo me u cover green');
-    // } 
+    /**if we have scrollUp */
     else if (this.delta < 0) {
       const canvas = document.getElementById('canvas');
       if (canvas!.scrollTop === 0) {
@@ -114,10 +108,28 @@ export class CoverGreenComponent implements OnInit {
         let canvas = document.getElementById('canvas');
         canvas!.scrollTop =this.scrollYInner - 7000;
       }
-    } else {
+    }else {
       this.scrollY;
       let canvas = document.getElementById('canvas');
       canvas!.scrollTop =this.scrollYInner - 7000;
+    }
+  }
+  /**upload all elements in DOM */
+  ngAfterViewInit() {
+    this.hamburger();
+  }
+  hamburger() {
+    if (this.canvaOpen) {
+      let canvas = document.getElementById('canvas');
+      let contentId = document.getElementById('contentId');
+      this.onlyBlueApperance();
+      if (canvas) {
+        canvas.style.height = '7000px';
+          if (contentId) {
+            contentId.scrollIntoView();
+          }
+      }
+      console.log('evo me u cover green');
     }
   }
 }
