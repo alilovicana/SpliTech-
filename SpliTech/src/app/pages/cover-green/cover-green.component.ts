@@ -50,7 +50,6 @@ export class CoverGreenComponent implements OnInit {
     this.canvasHeight =
       getComputedStyle(hostElement).getPropertyValue('--canvas-height');
     this.canvasHeigthNumber = parseInt(this.canvasHeight);
-    console.log(this.canvasHeight);
   }
   toggleVisible() {
     this.$isVisible.toggleVisible();
@@ -83,12 +82,13 @@ export class CoverGreenComponent implements OnInit {
         this.scrollY += event.deltaY;
         this.scrollYInner += event.deltaY;
         this.myMove();
+        // this.smoothScroll();
         document.getElementById('canvas')!.style.height =
-          Math.floor(this.scrollY / 10) + 'px';
+          Math.floor(this.scrollY / 2) + 'px';
 
         //animation on 9 and title of conference
         const mainContent = document.getElementById('mainContent');
-        mainContent!.style.transform = `scale(${this.scrollY / 1700})`;
+        mainContent!.style.transform = `scale(${this.scrollY/ 400})`;
 
         if (this.scrollY === 0) {
           clearInterval(intervalId);
@@ -103,13 +103,21 @@ export class CoverGreenComponent implements OnInit {
   }
 
   myMove() {
-    if(this.canvasHeigthNumber){
+    if (this.canvasHeigthNumber) {
+      let contentId = document.getElementById('contentId');
+      let canvasInnerHeight = contentId?.clientHeight;
+
       if (this.scrollY < 0) {
         this.scrollY = 0;
       } else if (this.scrollY > this.canvasHeigthNumber) {
-        this.scrollY = this.canvasHeigthNumber;
+        this.scrollY = this.canvasHeigthNumber;        
         let canvas = document.getElementById('canvas');
-        canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
+        canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber!;
+        // setTimeout(()=>{
+        //   canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber!;
+        // },1000)
+       
+
       } else if (this.delta < 0) {
         /**if we have scrollUp */
         const canvas = document.getElementById('canvas');
@@ -120,6 +128,12 @@ export class CoverGreenComponent implements OnInit {
           let canvas = document.getElementById('canvas');
           canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
         }
+      } else if (
+        /*prevent infinity scrolling*/
+        this.scrollYInner >=
+        this.canvasHeigthNumber + canvasInnerHeight!
+      ) {
+        this.scrollYInner = this.canvasHeigthNumber + canvasInnerHeight! + 200;
       } else {
         this.scrollY;
         let canvas = document.getElementById('canvas');
@@ -135,9 +149,9 @@ export class CoverGreenComponent implements OnInit {
     if (this.canvaOpen) {
       let canvas = document.getElementById('canvas');
       let contentId = document.getElementById('contentId');
-      this.onlyBlueApperance();
+      // this.onlyBlueApperance();
       if (canvas) {
-        canvas.style.height = 'canvasHeightpx';
+        canvas.style.height! = this.canvasHeigthNumber!.toString();
         if (contentId) {
           contentId.scrollIntoView();
         }

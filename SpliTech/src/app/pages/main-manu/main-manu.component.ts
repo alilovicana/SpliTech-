@@ -9,25 +9,12 @@ import { CanvaOpenService } from 'src/app/canva-open.service';
   styleUrls: ['./main-manu.component.css'],
 })
 export class MainManuComponent {
+  
   constructor(
     public $isNotVisible: IsVisibleService,
     public router: Router,
     public $canvaOpen: CanvaOpenService
-  ) {}
-  scrollToAnchor(contentId: string) {
-    const element = document.getElementById(contentId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      });
-    }
-    console.log(element);
-  }
-  canvaOpenFunction() {
-    document.getElementById('canvas')!.style.height =
-      Math.floor(7000/ 10) + 'px';
+  ) {
   }
   navigateTo(path: string) {
     if (this.$isNotVisible.isVisible) {

@@ -1,5 +1,5 @@
 :host {
-  --canvas-height: 7000;
+  --canvas-height: 1400;
 }
 .container {
   height: 100vh;
@@ -103,7 +103,6 @@
 #canvas::-webkit-scrollbar-thumb {
   background: transparent;
 }
-
 /* content unutar canve*/
 .mainContent {
   display: flex;
