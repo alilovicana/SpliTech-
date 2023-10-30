@@ -9,16 +9,22 @@ import { AccomodationComponent } from './content/accomodation/accomodation.compo
 import { RegistrationComponent } from './content/registration/registration.component';
 import { OrganizationComponent } from './content/organization/organization.component';
 import { ContactComponent } from './content/contact/contact.component';
+import { HomeComponent } from './content/home/home.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/important-dates', pathMatch: 'full' },
-  { path: 'important-dates', component: ImportantDatesComponent },
-  { path: 'chairs', component: ChairsComponent },
-  { path: 'committee', component: CommitteeComponent },
-  { path: 'location', component: LocationComponent },
-  {path:'accomodation', component:AccomodationComponent},
-  {path:'registration', component:RegistrationComponent},
-  {path:'organisation', component:OrganizationComponent},
-  {path:'contact', component:ContactComponent}
+  { path: '', redirectTo: '/Home/important-dates', pathMatch: 'full' },
+  {
+    path: 'Home',
+    component: HomeComponent,
+    children: [
+      { path: 'important-dates', component: ImportantDatesComponent },
+      { path: 'committee', component: CommitteeComponent },
+      { path: 'location', component: LocationComponent },
+      { path: 'accomodation', component: AccomodationComponent },
+      { path: 'registration', component: RegistrationComponent },
+      { path: 'organisation', component: OrganizationComponent },
+      { path: 'contact', component: ContactComponent },
+    ],
+  },
 ];
 
 @NgModule({
