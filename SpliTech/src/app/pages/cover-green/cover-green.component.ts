@@ -82,7 +82,6 @@ export class CoverGreenComponent implements OnInit {
         this.scrollY += event.deltaY;
         this.scrollYInner += event.deltaY;
         this.myMove();
-        // this.smoothScroll();
         document.getElementById('canvas')!.style.height =
           Math.floor(this.scrollY / 2) + 'px';
 

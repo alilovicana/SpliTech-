@@ -9,12 +9,12 @@ import { AccomodationComponent } from './content/accomodation/accomodation.compo
 import { RegistrationComponent } from './content/registration/registration.component';
 import { OrganizationComponent } from './content/organization/organization.component';
 import { ContactComponent } from './content/contact/contact.component';
-import { HomeComponent } from './content/home/home.component';
+import { CoverGreenComponent } from './pages/cover-green/cover-green.component';
 const routes: Routes = [
   { path: '', redirectTo: '/Home/important-dates', pathMatch: 'full' },
   {
     path: 'Home',
-    component: HomeComponent,
+    component: CoverGreenComponent,
     children: [
       { path: 'important-dates', component: ImportantDatesComponent },
       { path: 'committee', component: CommitteeComponent },

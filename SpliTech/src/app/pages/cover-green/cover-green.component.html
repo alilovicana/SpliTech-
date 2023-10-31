@@ -3,6 +3,9 @@
     <div class="logo"><img src="../../../assets/logoBijeli.svg" /></div>
   </div>
   <div class="title">
+    <a routerLink="location">Click me Location</a>
+    <a routerLink="accomodation">Click me Accomodation</a>
+    <a routerLink="important-dates">Click me important</a>
     <div class="firstLine" id="goFor">GO FOR</div>
     <div class="menu" id="menu" (click)="toggleVisible()">
       <img
@@ -38,7 +41,7 @@
           <div class="accomodation" ><img src="../../../assets/Accomodation-svg.svg"></div>
         </div> -->
       <div class="mainContentContent" id="contentId">
-        <app-home></app-home>
+        <router-outlet></router-outlet>
       </div>
     </div>
     <div class="secondLine">

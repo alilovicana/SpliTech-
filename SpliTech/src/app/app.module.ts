@@ -14,7 +14,6 @@ import { AccomodationComponent } from './content/accomodation/accomodation.compo
 import { RegistrationComponent } from './content/registration/registration.component';
 import { OrganizationComponent } from './content/organization/organization.component';
 import { ContactComponent } from './content/contact/contact.component';
-import { HomeComponent } from './content/home/home.component';
 
 
 @NgModule({
@@ -30,8 +29,7 @@ import { HomeComponent } from './content/home/home.component';
     AccomodationComponent,
     RegistrationComponent,
     OrganizationComponent,
-    ContactComponent,
-    HomeComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
