@@ -115,6 +115,7 @@
   position: relative;
   top: 50px;
   right: 100px;
+  /* display: none; */
 }
 .mainContentPlayGround {
   display: flex;
@@ -163,7 +164,7 @@
 }
 @media screen and (max-width: 800px) {
   :host {
-    --canvas-height: 3050;
+    --canvas-height: 500;
   }
   .container {
     position: relative;
@@ -247,6 +248,6 @@
 }
 @media screen and (max-width: 1800px) {
   :host {
-    --canvas-height: 4400;
+    --canvas-height: 1000;
   }
 }

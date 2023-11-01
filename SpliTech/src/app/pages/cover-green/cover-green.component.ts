@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MainServiceService } from 'src/app/main-service.service';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { CanvaOpenService } from 'src/app/canva-open.service';
@@ -41,15 +41,22 @@ export class CoverGreenComponent implements OnInit {
     private elementRef: ElementRef
   ) {}
   ngOnInit() {
-    this.animationFunction();
-    this.$canvaOpen.get().subscribe((value) => {
-      this.canvaOpen = value;
-    });
     // variable from CSS
     const hostElement = this.elementRef.nativeElement;
     this.canvasHeight =
       getComputedStyle(hostElement).getPropertyValue('--canvas-height');
     this.canvasHeigthNumber = parseInt(this.canvasHeight);
+    console.log(this.canvasHeigthNumber)
+    this.animationFunction();
+    this.$canvaOpen.get().subscribe((value) => {
+      setTimeout(() => {
+        console.log("canva open triggered with value: " + value)
+        this.canvaOpen = value;
+        this.hamburger()
+      }, 100);
+
+    });
+    
   }
   toggleVisible() {
     this.$isVisible.toggleVisible();
@@ -87,12 +94,16 @@ export class CoverGreenComponent implements OnInit {
 
         //animation on 9 and title of conference
         const mainContent = document.getElementById('mainContent');
-        mainContent!.style.transform = `scale(${this.scrollY/ 400})`;
+        mainContent!.style.transform = `scale(${this.scrollY / 400})`;
 
         if (this.scrollY === 0) {
           clearInterval(intervalId);
           intervalId = setInterval(changeAppearance, 3000);
-        } else {
+        } 
+        // else if (this.scrollY >= 30) {
+        //   this.stepOne();
+        // } 
+        else {
           this.onlyBlueApperance();
           clearInterval(intervalId);
         }
@@ -109,14 +120,12 @@ export class CoverGreenComponent implements OnInit {
       if (this.scrollY < 0) {
         this.scrollY = 0;
       } else if (this.scrollY > this.canvasHeigthNumber) {
-        this.scrollY = this.canvasHeigthNumber;        
+        this.scrollY = this.canvasHeigthNumber;
         let canvas = document.getElementById('canvas');
         canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber!;
         // setTimeout(()=>{
         //   canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber!;
         // },1000)
-       
-
       } else if (this.delta < 0) {
         /**if we have scrollUp */
         const canvas = document.getElementById('canvas');
@@ -132,7 +141,7 @@ export class CoverGreenComponent implements OnInit {
         this.scrollYInner >=
         this.canvasHeigthNumber + canvasInnerHeight!
       ) {
-        this.scrollYInner = this.canvasHeigthNumber + canvasInnerHeight! + 200;
+        this.scrollYInner = this.canvasHeigthNumber + canvasInnerHeight! + 500;
       } else {
         this.scrollY;
         let canvas = document.getElementById('canvas');
@@ -140,22 +149,32 @@ export class CoverGreenComponent implements OnInit {
       }
     }
   }
-  /**upload all elements in DOM */
-  ngAfterViewInit() {
-    this.hamburger();
-  }
+
   hamburger() {
+    console.log("called hamburger")
+    console.log(this.canvasHeigthNumber)
     if (this.canvaOpen) {
       let canvas = document.getElementById('canvas');
       let contentId = document.getElementById('contentId');
       // this.onlyBlueApperance();
       if (canvas) {
-        canvas.style.height! = this.canvasHeigthNumber!.toString();
+        canvas.style.height! = (this.canvasHeigthNumber! /2).toString() + "px";
+        this.scrollY != this.canvasHeigthNumber + 1
+        this.scrollYInner != this.canvasHeigthNumber + 1
         if (contentId) {
-          contentId.scrollIntoView();
+          canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
         }
       }
       console.log('evo me u cover green');
     }
+  }
+
+  stepOne() {
+    let mainContent = document.getElementById('mainContent');
+    mainContent!.style.display = 'static';
+  }
+  stepTwo() {
+    let contentId = document.getElementById('contentId');
+    contentId!.style.opacity = '1';
   }
 }
