@@ -1,4 +1,4 @@
-<div class="container styleBlue">
+<div class="container" [ngClass]="activeStyle[0]">
   <div class="logoMenu">
     <div class="logo"><img src="../../../assets/logoBijeli.svg" /></div>
   </div>
@@ -6,16 +6,15 @@
     <div class="firstLine" id="goFor">GO FOR</div>
     <div class="menu" id="menu" (click)="$isVisible.toggleVisible()">
       <img
-        src="../../../assets/greenMenu.svg"
+      [src]="activeStyle[1]"
       />
     </div>
     <div class="applyNow"><img src="../../../assets/applyNow.svg" /></div>
     <div class="arrow">
-      <img src="../../../assets/greenStrelica.svg" style="transition: ease 1s" />
+      <img [src]="activeStyle[2]" style="transition: ease 1s" />
     </div>
     <div class="canvas" [ngClass]="{'roko-open' : isCoverOpen}" id="canvas">
-      
-     
+
       <!-- <div class="mainContentPlayGround">
           <div class="registration" ><img src="../../../assets/Registration-svg.svg"></div>
           <div class="programme" ><img src="../../../assets/Programme-svg.svg"></div>

@@ -227,11 +227,7 @@
     height: 30px;
   }
 }
-@media screen and (max-width: 1800px) {
-  :host {
-    --canvas-height: 1000;
-  }
-}
+
 
 
 .roko-open {
@@ -263,8 +259,16 @@
   transform: scale(0.1);
 }
 .canvas{
-  margin:0 0 30px 0;
-  border-color: rgba(222, 234, 234, 0);
-  border: 2px solid #4bcb5e;
-  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 1800px) {
+  .roko-open {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .roko-open {
+    height: 730px;
+  }
 }
