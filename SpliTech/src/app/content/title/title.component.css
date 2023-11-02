@@ -1,0 +1,27 @@
+.mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    text-align: center;
+    max-height: 50vh;
+    margin-bottom: 1000px;
+    position: relative;
+    top: 50px;
+    right: 100px;
+    transform-origin: center;
+    transition: all ease-in-out 700ms;
+    /* display: none; */
+    scale: 3;
+  }
+  .nine {
+    font-family: "font9";
+    font-size: 200px;
+    color: white;
+    z-index: 15;
+  
+  }
+  .conferenceName {
+    color: #4bcb5e;
+    font-size: 20px;
+    font-family: "fontEveret";
+  }

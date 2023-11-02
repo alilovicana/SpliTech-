@@ -1,38 +1,21 @@
-<div class="container" [class]="styles[currentStyleIndex]">
+<div class="container styleBlue">
   <div class="logoMenu">
     <div class="logo"><img src="../../../assets/logoBijeli.svg" /></div>
   </div>
   <div class="title">
-    <a routerLink="location">Click me Location</a>
-    <a routerLink="accomodation">Click me Accomodation</a>
-    <a routerLink="important-dates">Click me important</a>
     <div class="firstLine" id="goFor">GO FOR</div>
-    <div class="menu" id="menu" (click)="toggleVisible()">
+    <div class="menu" id="menu" (click)="$isVisible.toggleVisible()">
       <img
-        [src]="imagesIzbornik[currentImageIndex]"
-        style="transition: ease 1s"
+        src="../../../assets/greenMenu.svg"
       />
     </div>
     <div class="applyNow"><img src="../../../assets/applyNow.svg" /></div>
     <div class="arrow">
-      <img [src]="imagesArrow[currentArrowIndex]" style="transition: ease 1s" />
+      <img src="../../../assets/greenStrelica.svg" style="transition: ease 1s" />
     </div>
-    <div class="canvas" id="canvas">
-      <div class="mainContent" id="mainContent">
-        <div class="nine">9</div>
-        <div
-          class="conferenceName"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
-          INTERNATIONAL<br />
-          CONFERENCE <br />
-          ON SMART AND <br />
-          SUSTAINABLE<br />
-          TECHNOLOGIES
-        </div>
-      </div>
+    <div class="canvas" [ngClass]="{'roko-open' : isCoverOpen}" id="canvas">
+      
+     
       <!-- <div class="mainContentPlayGround">
           <div class="registration" ><img src="../../../assets/Registration-svg.svg"></div>
           <div class="programme" ><img src="../../../assets/Programme-svg.svg"></div>
@@ -40,13 +23,18 @@
           <div class="authors" ><img src="../../../assets/Authors-svg.svg"></div>
           <div class="accomodation" ><img src="../../../assets/Accomodation-svg.svg"></div>
         </div> -->
-      <div class="mainContentContent" id="contentId">
-        <router-outlet></router-outlet>
-      </div>
+
+        <app-title         id="title" class="element" [ngClass]="{'element-show' : $showcase.elements['title'], 'element-hide' : !$showcase.elements['title'] }"></app-title>
+        <app-accomodation  id="accomodation" class="element" [ngClass]="{'element-show' : $showcase.elements['accomodation'], 'element-hide' : !$showcase.elements['accomodation'] }"></app-accomodation>
+        <app-chairs        id="chairs" class="element" [ngClass]="{'element-show' : $showcase.elements['chairs'], 'element-hide' : !$showcase.elements['chairs'] }"></app-chairs>
+        <app-committee     id="committee" class="element" [ngClass]="{'element-show' : $showcase.elements['committee'], 'element-hide' : !$showcase.elements['committee'] }"></app-committee>
+        <app-contact       id="contact" class="element" [ngClass]="{'element-show' : $showcase.elements['contact'], 'element-hide' : !$showcase.elements['contact'] }"></app-contact>
+        <app-important-dates id="important_dates" class="element" [ngClass]="{'element-show' : $showcase.elements['important_dates'], 'element-hide' : !$showcase.elements['important_dates'] }"></app-important-dates>
+        <app-location      id="location"class="element" [ngClass]="{'element-show' : $showcase.elements['location'], 'element-hide' : !$showcase.elements['location'] }"></app-location>
+        <app-organization id="organization" class="element" [ngClass]="{'element-show' : $showcase.elements['organization'], 'element-hide' : !$showcase.elements['organization'] }"></app-organization>
+        <app-registration id="registration" class="element" [ngClass]="{'element-show' : $showcase.elements['registration'], 'element-hide' : !$showcase.elements['registration'] }"></app-registration>
     </div>
-    <div class="secondLine">
-      {{ spliTech2023 }}<span class="longLine"></span>{{ spliTech2024 }}
-    </div>
+    <div class="secondLine">SpliTech 2023<span class="longLine"></span>Split - Bol, June 25-28, 2024</div>
     <div class="futureArrow">
       <div class="tirthLine" id="future">FUTURE!</div>
     </div>

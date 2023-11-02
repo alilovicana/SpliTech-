@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CanvaOpenService } from 'src/app/canva-open.service';
+import { ShowcaseService } from 'src/app/showcase.service';
 
 @Component({
   selector: 'app-main-manu',
@@ -14,16 +15,13 @@ export class MainManuComponent {
     public $isNotVisible: IsVisibleService,
     public router: Router,
     public $canvaOpen: CanvaOpenService,
-    public $activatedRoute : ActivatedRoute
+    public $activatedRoute : ActivatedRoute,
+    public $showcase : ShowcaseService
   ) {
-  }
+}
   navigateTo(path: string) {
-    if (this.$isNotVisible.isVisible) {
-      this.router.navigate(["Home/" + path], {relativeTo: this.$activatedRoute}).then(() => {
-        this.$isNotVisible.toggleVisible();
-        this.$canvaOpen.set(true);
-      });
-     
-    }
+
+    this.$showcase.show(path)
+    this.$isNotVisible.toggleVisible()
   }
 }

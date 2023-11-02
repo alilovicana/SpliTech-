@@ -1,180 +1,78 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { MainServiceService } from 'src/app/main-service.service';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { CanvaOpenService } from 'src/app/canva-open.service';
 import { ElementRef } from '@angular/core';
+import { ShowcaseService } from '../../showcase.service'
 
 @Component({
   selector: 'app-cover-green',
   templateUrl: './cover-green.component.html',
   styleUrls: ['./cover-green.component.css'],
 })
-export class CoverGreenComponent implements OnInit {
-  public mainManuVisible: boolean = false;
-  public currentStyleIndex: number = 0;
-  public styles: string[] = ['styleGreen', 'styleBlue'];
-  scrollY: number = 0;
-  scrollYInner: number = 0;
-  delta: number = 0;
-  canvaOpen?: boolean;
-  public imagesIzbornik: string[] = [
-    '../../../assets/blueIzbornik.svg',
-    '../../../assets/greenIzbornik.svg',
-  ];
-  public currentImageIndex: number = 0;
-
-  public imagesArrow: string[] = [
-    '../../../assets/blueStrelica.svg',
-    '../../../assets/greenStrelica.svg',
-  ];
-  public currentArrowIndex: number = 0;
-  spliTech2024 = this.$service.spliTech2024;
-  spliTech2023 = this.$service.spliTech2023;
-
-  canvasHeight?: string;
-  canvasHeigthNumber?: number;
-
+export class CoverGreenComponent implements AfterViewInit,OnInit {
   constructor(
-    public $service: MainServiceService,
-    public $isVisible: IsVisibleService,
-    public $canvaOpen: CanvaOpenService,
-    private elementRef: ElementRef
-  ) {}
-  ngOnInit() {
-    // variable from CSS
-    const hostElement = this.elementRef.nativeElement;
-    this.canvasHeight =
-      getComputedStyle(hostElement).getPropertyValue('--canvas-height');
-    this.canvasHeigthNumber = parseInt(this.canvasHeight);
-    console.log(this.canvasHeigthNumber)
-    this.animationFunction();
-    this.$canvaOpen.get().subscribe((value) => {
-      setTimeout(() => {
-        console.log("canva open triggered with value: " + value)
-        this.canvaOpen = value;
-        this.hamburger()
-      }, 100);
+    public $isVisible : IsVisibleService,
+    public $showcase : ShowcaseService
+  ){
 
-    });
-    
   }
-  toggleVisible() {
-    this.$isVisible.toggleVisible();
-  }
-  onlyBlueApperance() {
-    this.currentArrowIndex = 1;
-    this.currentStyleIndex = 1;
-    this.currentImageIndex = 1;
-  }
-  animationFunction() {
-    let intervalId: any;
+ ngOnInit(): void {
+  
+ }
 
-    const changeAppearance = () => {
-      this.currentArrowIndex =
-        (this.currentArrowIndex + 1) % this.imagesArrow.length;
-      this.currentStyleIndex =
-        (this.currentStyleIndex + 1) % this.styles.length;
-      this.currentImageIndex =
-        (this.currentImageIndex + 1) % this.imagesIzbornik.length;
-    };
-
-    intervalId = setInterval(changeAppearance, 3000);
-
-    document.addEventListener(
-      'wheel',
-      (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        this.delta = event.deltaY;
-        this.scrollY += event.deltaY;
-        this.scrollYInner += event.deltaY;
-        this.myMove();
-        document.getElementById('canvas')!.style.height =
-          Math.floor(this.scrollY / 2) + 'px';
-
-        //animation on 9 and title of conference
-        const mainContent = document.getElementById('mainContent');
-        mainContent!.style.transform = `scale(${this.scrollY / 400})`;
-
-        if (this.scrollY === 0) {
-          clearInterval(intervalId);
-          intervalId = setInterval(changeAppearance, 3000);
-        } 
-        // else if (this.scrollY >= 30) {
-        //   this.stepOne();
-        // } 
-        else {
-          this.onlyBlueApperance();
-          clearInterval(intervalId);
-        }
-      },
-      { passive: false }
-    );
+  isScrolledToBottom(){
+    let canvas = document.getElementById("canvas")
+    let element = document.getElementById(this.$showcase.elementsOrder[this.$showcase.currentElement])
+    let scrolledToBottom = Math.abs(element.scrollHeight - canvas.scrollTop - 701) < 1;
+console.log(element.scrollHeight + "  " + canvas.scrollTop)
+    return scrolledToBottom || element.offsetHeight < 1500;
   }
 
-  myMove() {
-    if (this.canvasHeigthNumber) {
-      let contentId = document.getElementById('contentId');
-      let canvasInnerHeight = contentId?.clientHeight;
-
-      if (this.scrollY < 0) {
-        this.scrollY = 0;
-      } else if (this.scrollY > this.canvasHeigthNumber) {
-        this.scrollY = this.canvasHeigthNumber;
-        let canvas = document.getElementById('canvas');
-        canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber!;
-        // setTimeout(()=>{
-        //   canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber!;
-        // },1000)
-      } else if (this.delta < 0) {
-        /**if we have scrollUp */
-        const canvas = document.getElementById('canvas');
-        if (canvas!.scrollTop === 0) {
-          this.scrollY;
+  ngAfterViewInit(): void {
+    document.addEventListener("wheel", (event) => {
+      if(!this.isScrolledToBottom()) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if(this.transitioning) return
+      console.log("wheel detected!")
+      console.log(event.deltaY)
+      if(event.deltaY > 0 && !this.transitioning) {
+        this.transitioning = true;
+        if(this.$showcase.currentElement == 0 && !this.isCoverOpen){ //not begun
+          console.log("first situation!")
+          this.isCoverOpen = true;
+          setTimeout(() => {
+            this.transitioning = false;
+          }, 2200);
         } else {
-          this.scrollY = this.canvasHeigthNumber;
-          let canvas = document.getElementById('canvas');
-          canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
+          console.log("incrementing")
+          this.$showcase.currentElement++;
+          this.$showcase.show(this.$showcase.elementsOrder[this.$showcase.currentElement])
+          setTimeout(() => {
+            this.transitioning = false;
+          }, 2200);
         }
-      } else if (
-        /*prevent infinity scrolling*/
-        this.scrollYInner >=
-        this.canvasHeigthNumber + canvasInnerHeight!
-      ) {
-        this.scrollYInner = this.canvasHeigthNumber + canvasInnerHeight! + 500;
+      } else if(event.deltaY < 0 && !this.transitioning) {
+        console.log("decrementing")
+        this.transitioning = true;
+        this.$showcase.currentElement--;
+        this.$showcase.show(this.$showcase.elementsOrder[this.$showcase.currentElement])
+        setTimeout(() => {
+          this.transitioning = false;
+        }, 2200);
       } else {
-        this.scrollY;
-        let canvas = document.getElementById('canvas');
-        canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
+        console.log("0 bodova")
       }
-    }
+    }, { passive: false });
   }
 
-  hamburger() {
-    console.log("called hamburger")
-    console.log(this.canvasHeigthNumber)
-    if (this.canvaOpen) {
-      let canvas = document.getElementById('canvas');
-      let contentId = document.getElementById('contentId');
-      // this.onlyBlueApperance();
-      if (canvas) {
-        canvas.style.height! = (this.canvasHeigthNumber! /2).toString() + "px";
-        this.scrollY != this.canvasHeigthNumber + 1
-        this.scrollYInner != this.canvasHeigthNumber + 1
-        if (contentId) {
-          canvas!.scrollTop = this.scrollYInner - this.canvasHeigthNumber;
-        }
-      }
-      console.log('evo me u cover green');
-    }
-  }
+  transitioning = false;
 
-  stepOne() {
-    let mainContent = document.getElementById('mainContent');
-    mainContent!.style.display = 'static';
-  }
-  stepTwo() {
-    let contentId = document.getElementById('contentId');
-    contentId!.style.opacity = '1';
+  isNineBig = false;
+  isCoverOpen = false;
+
+  scrollToContent(){
+    let canvas = document.getElementById("canvas")
+    canvas.scrollTo({top: 1400, behavior: "smooth"});
   }
 }

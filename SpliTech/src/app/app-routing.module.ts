@@ -11,19 +11,11 @@ import { OrganizationComponent } from './content/organization/organization.compo
 import { ContactComponent } from './content/contact/contact.component';
 import { CoverGreenComponent } from './pages/cover-green/cover-green.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/Home/important-dates', pathMatch: 'full' },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
   {
     path: 'Home',
     component: CoverGreenComponent,
-    children: [
-      { path: 'important-dates', component: ImportantDatesComponent },
-      { path: 'committee', component: CommitteeComponent },
-      { path: 'location', component: LocationComponent },
-      { path: 'accomodation', component: AccomodationComponent },
-      { path: 'registration', component: RegistrationComponent },
-      { path: 'organisation', component: OrganizationComponent },
-      { path: 'contact', component: ContactComponent },
-    ],
+ 
   },
 ];
 

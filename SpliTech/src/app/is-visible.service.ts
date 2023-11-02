@@ -8,6 +8,7 @@ export class IsVisibleService {
   isVisible: boolean = false;
 
   toggleVisible() {
+    console.log("toggling")
     this.isVisible = !this.isVisible;
   }
   

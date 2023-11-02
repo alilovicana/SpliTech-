@@ -1,6 +1,7 @@
 <div class="main">
+  <app-main-manu class="menu" *ngIf="$isVisible.isVisible"></app-main-manu>
   <!-- <app-cover-green *ngIf="!$isVisible.isVisible"></app-cover-green> -->
-  <router-outlet *ngIf="!$isVisible.isVisible"></router-outlet>
-    <app-toggle-visible  *ngIf="$isVisible.isVisible"></app-toggle-visible>
-    <!-- <app-main-manu *ngIf="!$isVisible.isVisible"></app-main-manu> -->
+  <router-outlet></router-outlet>
+    <!-- <app-toggle-visible   ></app-toggle-visible> -->
+    
 </div>
