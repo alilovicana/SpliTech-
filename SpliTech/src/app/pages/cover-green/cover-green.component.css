@@ -1,5 +1,5 @@
 :host {
-  --canvas-height: 1400;
+  --element-height: 2500;
 }
 .container {
   height: 100vh;
@@ -20,6 +20,7 @@
   text-align: center;
 }
 .menu {
+  z-index: 90;
   position: absolute;
   left: 90%;
   top: 10%;
@@ -269,6 +270,6 @@
 }
 @media screen and (max-width: 800px) {
   .roko-open {
-    height: 730px;
+    height: 600px;
   }
 }

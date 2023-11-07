@@ -1,24 +1,29 @@
-@import url('../chairs/chairs.component.css');
-*{
-    color:white;
+@import url("../chairs/chairs.component.css");
+* {
+  color: white;
 }
-.hotelName{
-    font-size: 35px;
+.hotelName {
+  font-size: 32px;
+  font-family: font;
+  text-align: center;
 }
-.hoteDescription{
-    font-size: 18px;
-}
-
-@media  screen and (max-width:800px) {
-    .hotelName{
-        font-size:44px;
-    }
-    .hoteDescription{
-        font-size: 16px;
-    }
-    .comitee-subtitle#accomodation{
-        font-size: 35px;
-        padding-left: 20px;
-    }
+.hoteDescription {
+  font-size: 18px;
+  max-width: 90vw;
+  text-align: center;
+  font-size: 18px;
+  line-height: 20px;
 }
 
+@media screen and (max-width: 800px) {
+  .hotelName {
+    font-size: 25px;
+  }
+  .hotelDescription {
+    font-size: 10px;
+  }
+  .comitee-subtitle#accomodation {
+    font-size: 32px;
+    padding-left: 20px;
+  }
+}

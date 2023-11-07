@@ -41,9 +41,9 @@ export class ShowcaseService {
   show(element) {
     this.currentElement = this.elementsOrder.indexOf(element);
     console.log('currentElement'+ this.currentElement)
-    if(this.currentElement==7){
-      this.currentElement=0;
-    }
+    // if(this.currentElement==7){
+    //   this.currentElement=0;
+    // }
     if (this.working) return;
     this.working = true;
     this.elements[this.current] = false;
