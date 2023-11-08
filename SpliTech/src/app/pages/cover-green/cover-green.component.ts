@@ -18,7 +18,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     '../../../assets/greenIzbornik.svg',
     '../../../assets/greenStrelica.svg',
   ];
- 
+
   public heightOfElement;
   public activeStyle: string[] = this.styleGreen;
   constructor(
@@ -33,21 +33,28 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
       getComputedStyle(hostElement).getPropertyValue('--element-height');
     setTimeout(() => {
       this.activeStyle = this.styleBlue;
-    }, 800);
+    }, 1000);
   }
-
+  navigateTo(path: string) {
+    this.isCoverOpen = true;
+    this.$showcase.show(path);
+  }
   isScrolledToBottom() {
     let canvas = document.getElementById('canvas');
-    console.log('canvas height '+canvas.clientHeight)
+    console.log('canvas height ' + canvas.clientHeight);
     let element = document.getElementById(
       this.$showcase.elementsOrder[this.$showcase.currentElement]
     );
     let scrolledToBottom =
-      Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
+      Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) <
+      1;
     console.log(
       'element. scrollHright' +
         element.scrollHeight +
-        '  ' + 'canvas.scrollTop' +canvas.scrollTop+ ' '+ 
+        '  ' +
+        'canvas.scrollTop' +
+        canvas.scrollTop +
+        ' ' +
         'element.scrolledToBottom' +
         scrolledToBottom
     );
@@ -76,7 +83,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           } else {
             if (
               this.$showcase.currentElement ===
-              this.$showcase.elementsOrder.length-1
+              this.$showcase.elementsOrder.length - 1
             ) {
               this.$showcase.currentElement = 0;
             }
@@ -92,10 +99,8 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           }
         } else if (event.deltaY < 0 && !this.transitioning) {
           console.log('decrementing');
-          if (
-            this.$showcase.currentElement ===0
-          ) {
-            this.$showcase.currentElement =this.$showcase.elementsOrder.length
+          if (this.$showcase.currentElement === 0) {
+            this.$showcase.currentElement = this.$showcase.elementsOrder.length;
           }
           this.transitioning = true;
           this.$showcase.currentElement--;
@@ -113,13 +118,13 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     );
     /**scroll on mobile phone */
     let startY = null;
-    console.log('startY'+startY)
+    console.log('startY' + startY);
     document.addEventListener(
       'touchmove',
       (event) => {
         let i = 0;
         let deltaY = event.touches[i++].clientY - startY;
-        console.log('deltaY'+ deltaY);
+        console.log('deltaY' + deltaY);
         if (Math.abs(deltaY) < 10) {
           return; //izbjegavanje malih promjena
         }
@@ -140,7 +145,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           } else {
             if (
               this.$showcase.currentElement ===
-              this.$showcase.elementsOrder.length-1
+              this.$showcase.elementsOrder.length - 1
             ) {
               this.$showcase.currentElement = 0;
             }
@@ -156,10 +161,8 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           }
         } else if (deltaY < 0 && !this.transitioning) {
           console.log('decrementing');
-          if (
-            this.$showcase.currentElement ===0
-          ) {
-            this.$showcase.currentElement =this.$showcase.elementsOrder.length
+          if (this.$showcase.currentElement === 0) {
+            this.$showcase.currentElement = this.$showcase.elementsOrder.length;
           }
           this.transitioning = true;
           this.$showcase.currentElement--;
@@ -173,14 +176,14 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           console.log('0 bodova');
         }
         startY = event.touches[i].clientY;
-        console.log('startY'+ startY);
+        console.log('startY' + startY);
       },
       { passive: false }
     );
   }
 
   transitioning = false;
-  isCoverOpen = false;
+  isCoverOpen = this.$showcase.isCoverOpen;
 
   scrollToContent() {
     let canvas = document.getElementById('canvas');

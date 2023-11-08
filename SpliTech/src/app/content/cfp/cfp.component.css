@@ -1,11 +1,11 @@
 @font-face {
     font-family: font;
-    src: url('../../assets/Everett-Medium.otf');
+    src: url('../../../assets/Everett-Medium.otf');
 }
 
 @font-face {
     font-family: font-light;
-    src: url('../../assets/Everett-Light.otf');
+    src: url('../../../assets/Everett-Light.otf');
 }
 
 
@@ -69,7 +69,22 @@ a {
     overflow-y: scroll;
     flex-shrink: 0;
 }
-
+#container::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  
+  #container::-webkit-scrollbar {
+    width: 0rem;
+  }
+  
+  #container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  #container::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  
 .content {
     
     flex-direction: column;
@@ -84,7 +99,21 @@ a {
     max-height: 100vh;
     overflow-y: scroll;
 }
-
+#content::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  
+  #content::-webkit-scrollbar {
+    width: 0rem;
+  }
+  
+  #content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  #content::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
 .roadmap {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -15,6 +15,7 @@ import { RegistrationComponent } from './content/registration/registration.compo
 import { OrganizationComponent } from './content/organization/organization.component';
 import { ContactComponent } from './content/contact/contact.component';
 import { TitleComponent } from './content/title/title.component';
+import { CfpComponent } from './content/cfp/cfp.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { TitleComponent } from './content/title/title.component';
     RegistrationComponent,
     OrganizationComponent,
     ContactComponent,
-    TitleComponent
+    TitleComponent,
+    CfpComponent
   ],
   imports: [
     BrowserModule,

@@ -10,18 +10,18 @@ import { ShowcaseService } from 'src/app/showcase.service';
   styleUrls: ['./main-manu.component.css'],
 })
 export class MainManuComponent {
-  
   constructor(
     public $isNotVisible: IsVisibleService,
     public router: Router,
     public $canvaOpen: CanvaOpenService,
-    public $activatedRoute : ActivatedRoute,
-    public $showcase : ShowcaseService
-  ) {
-}
-  navigateTo(path: string) {
+    public $activatedRoute: ActivatedRoute,
+    public $showcase: ShowcaseService
+  ) {}
 
-    this.$showcase.show(path)
-    this.$isNotVisible.toggleVisible()
+  navigateTo(path: string) {
+    this.isCoverOpen = true;
+    this.$showcase.show(path);
+    this.$isNotVisible.toggleVisible();
   }
+  isCoverOpen = this.$showcase.isCoverOpen;
 }

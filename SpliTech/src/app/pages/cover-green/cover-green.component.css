@@ -55,7 +55,7 @@
   margin: 0 10px;
   vertical-align: middle;
 }
-.applyNow {
+.authors {
   z-index: 90;
   position: absolute;
   left: 73%;
@@ -210,14 +210,12 @@
     left: 80%;
     top: 10%;
   }
-  .applyNow img {
+  .authors img {
     width: 80px;
     height: 80px;
   }
-  .applyNow {
+  .authors {
     position: absolute;
-    left: 73%;
-    top: -20%;
     z-index: 2;
   }
   .arrow {

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class ShowcaseService {
   constructor() {}
   isVisible: boolean = false;
+  isCoverOpen = false;
 
   toggleVisible() {
     this.isVisible = !this.isVisible;
@@ -19,7 +20,7 @@ export class ShowcaseService {
     'accomodation',
     'registration',
     'organization',
-    'contact',
+    'contact'
   ];
   currentElement = 0;
 
@@ -33,6 +34,7 @@ export class ShowcaseService {
     location: false,
     organization: false,
     registration: false,
+    cfp:false
   };
 
   current = 'title';
@@ -41,9 +43,6 @@ export class ShowcaseService {
   show(element) {
     this.currentElement = this.elementsOrder.indexOf(element);
     console.log('currentElement'+ this.currentElement)
-    // if(this.currentElement==7){
-    //   this.currentElement=0;
-    // }
     if (this.working) return;
     this.working = true;
     this.elements[this.current] = false;
