@@ -260,7 +260,11 @@
   .roko-open {
     height: 400px;
   }
- 
+  .authors{
+    position: absolute;
+    left: 73%;
+    top: 50%;
+  }
 }
 @media screen and (max-width: 800px) {
   .roko-open {
