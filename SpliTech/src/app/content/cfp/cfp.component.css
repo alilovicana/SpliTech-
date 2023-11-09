@@ -8,10 +8,9 @@
     src: url('../../../assets/Everett-Light.otf');
 }
 
-
 .background {
     overflow: hidden;
-    background-color: #002340;
+    /* background-color: #002340; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -20,17 +19,18 @@
     z-index: -2;
 }
 
-
 .background-logo {
     position: fixed;
     width: 150%;
     z-index: 0;
     opacity: 0.05;
     transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+    display: none;
 }
 .background-logo-open {
     width: 200%;
 }
+/*  */
 
 @media only screen and (max-width: 800px)  {
     .background-logo {
@@ -86,7 +86,6 @@ a {
   }
   
 .content {
-    
     flex-direction: column;
     display: flex;
     align-items: flex-start;
@@ -155,7 +154,7 @@ a {
 }
 
 .roadtitle {
-    font-family: font;
+    font-family: font-light;
     font-size: 28px;
     color: #4bcb5e;
     line-height: 30px;
@@ -181,4 +180,63 @@ a {
 .para > span {
     font-family: font;
     color: #4bcb5e;
+}
+
+
+/*conference topics html*/
+.elementor-heading-title{
+    color: #4bcb5e;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 25px;
+    overflow-wrap: break-word;
+    font-family:font;
+}
+.elementor-text-editor{
+    color: #ffffff;
+}
+.elementor-widget-container{
+    font-family:  font;
+}
+.elementor-clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+    margin-bottom: 20px;
+}
+ul{
+    list-style-position: inside;
+    padding: 0;
+    margin: 0 0 25px;
+    list-style-type: disc;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 26px;
+    text-transform: initial;
+    font-family: font-light;
+}
+.li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 20px;
+    line-height: 25px;
+}
+.elementor-row {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.elementor-column {
+    position: relative;
+    min-height: 1px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
 }
