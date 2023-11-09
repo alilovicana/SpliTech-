@@ -9,6 +9,7 @@
     grid-template-columns: 1fr !important;
     justify-content: center !important;
     align-items: center;
+    margin-bottom: 200px;
 }
 .location-text {
     max-width: 90vw;

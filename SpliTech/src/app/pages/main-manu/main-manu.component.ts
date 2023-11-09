@@ -19,7 +19,7 @@ export class MainManuComponent {
   ) {}
 
   navigateTo(path: string) {
-    this.isCoverOpen = true;
+     this.$showcase.isCoverOpen= true;
     this.$showcase.show(path);
     this.$isNotVisible.toggleVisible();
   }

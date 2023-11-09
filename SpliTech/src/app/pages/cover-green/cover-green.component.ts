@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { ShowcaseService } from '../../showcase.service';
 
@@ -23,42 +23,31 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
   public activeStyle: string[] = this.styleGreen;
   constructor(
     public $isVisible: IsVisibleService,
-    public $showcase: ShowcaseService,
-    private el: ElementRef
+    public $showcase: ShowcaseService
   ) {}
-
   ngOnInit(): void {
-    const hostElement = this.el.nativeElement;
-    this.heightOfElement =
-      getComputedStyle(hostElement).getPropertyValue('--element-height');
     setTimeout(() => {
       this.activeStyle = this.styleBlue;
     }, 1000);
   }
   navigateTo(path: string) {
-    this.isCoverOpen = true;
+    this.$showcase.isCoverOpen = true;
     this.$showcase.show(path);
   }
   isScrolledToBottom() {
     let canvas = document.getElementById('canvas');
-    console.log('canvas height ' + canvas.clientHeight);
     let element = document.getElementById(
       this.$showcase.elementsOrder[this.$showcase.currentElement]
     );
     let scrolledToBottom =
       Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) <
       1;
-    console.log(
-      'element. scrollHright' +
-        element.scrollHeight +
-        '  ' +
-        'canvas.scrollTop' +
-        canvas.scrollTop +
-        ' ' +
-        'element.scrolledToBottom' +
-        scrolledToBottom
-    );
-    return scrolledToBottom || element.offsetHeight < this.heightOfElement;
+    console.log('element.scrollHeight' + element.scrollHeight);
+    console.log('canvas.scrollTop ' + canvas.scrollTop);
+    console.log('canvas.clientHeight' + canvas.clientHeight);
+    //  return scrolledToBottom || (canvas.clientHeight === 0 ? element.offsetHeight< 700 : element.offsetHeight < canvas.clientHeight);
+    if (canvas.clientHeight == 0) return true;
+    return scrolledToBottom || element.offsetHeight < canvas.clientHeight;
   }
   ngAfterViewInit(): void {
     /**scroll on laptop */
@@ -70,13 +59,15 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
         event.stopPropagation();
         if (this.transitioning) return;
         console.log('wheel detected!');
-        console.log('deltaY' + event.deltaY);
         if (event.deltaY > 0 && !this.transitioning) {
           this.transitioning = true;
-          if (this.$showcase.currentElement == 0 && !this.isCoverOpen) {
+          if (
+            this.$showcase.currentElement == 0 &&
+            !this.$showcase.isCoverOpen
+          ) {
             //not begun
             console.log('first situation!');
-            this.isCoverOpen = true;
+            this.$showcase.isCoverOpen = true;
             setTimeout(() => {
               this.transitioning = false;
             }, 2400);
@@ -135,13 +126,16 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
         console.log('wheel detected!');
         if (deltaY > 0 && !this.transitioning) {
           this.transitioning = true;
-          if (this.$showcase.currentElement == 0 && !this.isCoverOpen) {
+          if (
+            this.$showcase.currentElement == 0 &&
+            !this.$showcase.isCoverOpen
+          ) {
             //not begun
             console.log('first situation!');
-            this.isCoverOpen = true;
+            this.$showcase.isCoverOpen = true;
             setTimeout(() => {
               this.transitioning = false;
-            }, 1000);
+            }, 2400);
           } else {
             if (
               this.$showcase.currentElement ===
@@ -183,7 +177,6 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
   }
 
   transitioning = false;
-  isCoverOpen = this.$showcase.isCoverOpen;
 
   scrollToContent() {
     let canvas = document.getElementById('canvas');

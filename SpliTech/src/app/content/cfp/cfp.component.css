@@ -125,6 +125,23 @@ a {
     .roadmap {
         grid-template-columns: 1fr;
     }
+    .cfp {
+        font-size: 30px;
+        padding: 10px;
+        line-height: 34px;
+    }
+    .roadtitle {
+        font-family: font;
+        font-size: 18px;
+        color: #4bcb5e;
+        line-height: 20px;
+    }
+    
+    .roadtext {
+        font-size: 8px;
+        line-height: 12px;
+        margin-top: 20px;
+    }
 }
 
 .road {

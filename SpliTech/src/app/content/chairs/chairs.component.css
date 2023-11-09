@@ -16,11 +16,11 @@
     font-size: 82px;
     letter-spacing: 15px;
     /* white-space: nowrap; */
-    padding: 8px;
+    /* padding: 8px; */
     position: relative;
     text-align: start;
     align-self: flex-start;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     overflow: visible;
 }
 .comitee-member {

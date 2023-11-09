@@ -1,4 +1,5 @@
 @import url('../chairs/chairs.component.css');
+
 .dropper {
     font-family: font;
     font-size: 22px;
@@ -21,4 +22,5 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 200px;
 }

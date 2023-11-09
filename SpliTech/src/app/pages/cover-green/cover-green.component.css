@@ -1,6 +1,4 @@
-:host {
-  --element-height: 2500;
-}
+
 .container {
   height: 100vh;
   width: 100%;
@@ -145,9 +143,6 @@
   text-transform: uppercase;
 }
 @media screen and (max-width: 800px) {
-  :host {
-    --canvas-height: 500;
-  }
   .container {
     position: relative;
     height: 100vh;
@@ -265,9 +260,11 @@
   .roko-open {
     height: 400px;
   }
+ 
 }
 @media screen and (max-width: 800px) {
   .roko-open {
     height: 600px;
   }
+
 }
