@@ -24,3 +24,13 @@ li {
     align-items: center;
     margin-bottom: 200px;
 }
+@media screen and (max-width: 800px) {
+    .dropper {
+        font-size: 20px;
+        width: 70vw;
+      }
+      ul{
+        width: 70vw;
+      }
+    
+  }

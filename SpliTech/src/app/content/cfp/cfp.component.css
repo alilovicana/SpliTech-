@@ -141,6 +141,14 @@ a {
         line-height: 12px;
         margin-top: 20px;
     }
+    .background{
+        display: flex;
+        justify-content: center;
+        width: 90vw;
+    }
+    .conferenceTopics{
+        width: 70vw;
+    }
 }
 
 .road {
