@@ -43,7 +43,8 @@
 }
 .secondLine {
   color: white;
-  font-size: x-large;
+  font-size: 28px;
+  padding-left: 20px;
   font-family: "fontEveret";
 }
 .longLine {
@@ -156,6 +157,7 @@
     color: white;
     font-size: 15px;
     font-family: "fontEveret";
+    padding-left: 0px;
   }
   .mainContent {
     display: flex;
