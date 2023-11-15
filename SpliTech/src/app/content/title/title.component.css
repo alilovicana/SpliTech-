@@ -1,7 +1,7 @@
 .mainContent {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   max-height: 50vh;
   transform-origin: center;
   transition: all ease-in-out 700ms;
