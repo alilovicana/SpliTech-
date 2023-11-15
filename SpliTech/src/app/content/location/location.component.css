@@ -65,4 +65,14 @@
         width: 270px;
         height: 200px;
       } 
+    
+}
+@media screen and (max-width:400px) {
+    .location-image {
+        width: 270px;
+        height: 200px;
+      } 
+    .location{
+        width: 70vw;
+    }
 }
