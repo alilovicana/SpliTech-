@@ -13,8 +13,8 @@
   margin-top: 80px;
   color: white;
   font-family: font;
-  font-size: 82px;
-  letter-spacing: 15px;
+  font-size: 62px;
+  /* letter-spacing: 15px; */
   /* white-space: nowrap; */
   /* padding: 8px; */
   position: relative;
@@ -39,7 +39,7 @@
 }
 
 .comitee-name {
-  font-family: font;
+  font-family: fontEveret;
   font-size: 24px;
   color: white;
   margin-top: 10px;
@@ -55,7 +55,7 @@
 
 .comitee-title {
   color: white;
-  font-family: font-light;
+  font-family: fontEveret;
   font-size: 20px;
   margin-top: 10px;
   z-index: 3;

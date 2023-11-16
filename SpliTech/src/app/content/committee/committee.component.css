@@ -1,8 +1,8 @@
 @import url('../chairs/chairs.component.css');
 
 .dropper {
-    font-family: font;
-    font-size: 22px;
+    font-family: fontEveret;
+    font-size: 24px;
     text-decoration: underline;
     cursor: pointer;
     color:white;
@@ -11,9 +11,9 @@ ul {
     list-style-type: circle;
 }
 li {
-    font-family: font;
+    font-family: fontEveret;
     display: list-item !important;
-    line-height: 20px;
+    line-height: 26px;
     list-style: circle;
     overflow: visible;
     color:white;

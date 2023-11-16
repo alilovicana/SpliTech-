@@ -1,12 +1,12 @@
 @import url('../chairs/chairs.component.css');
 *{
     color:white;
-    font-family: font;
 }
 .registrations {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-family: fontEveret;
 }
 
 .registration {
@@ -17,12 +17,13 @@
     border-radius: 10px;
     background-color: #002340;
     margin-top: 40px;
+
 }
 
 .reg-title {
     color: white;
     font-size: 24px;
-    font-family: font;
+    font-family: fontEveret;
     background-color: #4bcb5e;
     width: 100%;
     padding: 20px;
@@ -38,7 +39,7 @@
     color: white;
     font-size: 28px;
     width: 100%;
-    font-family: font;
+    font-family: fontEveret;
     background-color: #4bcb5e;
 }
 
@@ -48,25 +49,28 @@
     padding-bottom: 20px;
     font-size: 14px;
     width: 100%;
-    font-family: font;
+    font-family: fontEveret;
     background-color: #4bcb5e;
 }
 
 .reg-article {
     font-size: 18px;
     color: white;
-    font-family: font-light;
+    font-family: fontEveret;
     margin-top: 10px;
     text-align: center;
 }
 
 .reg-book {
     color: #4bcb5e;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     padding: 20px;
     font-size: 28px;
-    font-family: font;
+    font-family: fontEveret;
     text-align: center;
+}
+.reg-book a {
+    color: transparent;
 }
 .paddingDiv{
     margin-bottom: 200px;

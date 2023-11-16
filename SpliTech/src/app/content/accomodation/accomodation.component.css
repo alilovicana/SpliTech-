@@ -4,14 +4,15 @@
 }
 .hotelName {
   font-size: 32px;  
-  font-family: font;
+  font-family: fontEveret;
   text-align: center;
 }
 .hotelDescription{
   width: 100%;
   text-align: left;
-  font-size: 26px;
-    line-height: 28px;
+  font-size: 24px;
+  line-height: 26px;
+  font-family: fontEveret;
 }
 
 @media screen and (max-width: 800px) {

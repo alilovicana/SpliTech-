@@ -1,6 +1,6 @@
 @font-face {
   font-family: font;
-  src: url("../assets/Everett-Medium.otf");
+  src: url("../assets/VarentGrotesk-Bold.otf");
 }
 
 @font-face {
@@ -22,7 +22,7 @@
 * {
   flex-shrink: 0;
   color: white;
-  font-family: font-light;
+  font-family: fontEveret;
 }
 
 .menu {

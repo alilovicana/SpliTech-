@@ -16,15 +16,25 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+} 
+.logoVertical{
+ transform: rotate(90deg);
+ position: absolute;
+ top: 40%;
+ left:88%;
+}
+.logoVertical img {
+  width: 150px;
+  height: 70px;
 }
 .menu {
   z-index: 90;
   position: absolute;
   left: 90%;
   top: 10%;
+  cursor: pointer;
 }
 .futureArrow {
-  padding-top: 50px;
   display: flex;
   justify-content: space-between;
   text-align: center;
@@ -37,13 +47,13 @@
 .firstLine,
 .tirthLine {
   font-size: 13vw;
-  font-family: "fontVarent";
+  font-family: font;
   font-weight: bold;
   position: relative;
 }
 .secondLine {
   color: white;
-  font-size: 28px;
+  font-size: 38px;
   padding-left: 20px;
   font-family: "fontEveret";
 }
@@ -59,6 +69,7 @@
   position: absolute;
   left: 73%;
   top: 35%;
+  cursor: pointer;
 }
 
 .styleGreen {
@@ -156,7 +167,6 @@
   .secondLine {
     color: white;
     font-size: 15px;
-    font-family: "fontEveret";
     padding-left: 0px;
   }
   .mainContent {
@@ -186,9 +196,6 @@
     /* transform: translateY(40%); */
     text-align: center;
     z-index: 20;
-  }
-  .futureArrow {
-    padding-top: 20px;
   }
   .logo img {
     width: 90px;
@@ -274,3 +281,4 @@
   }
 
 }
+

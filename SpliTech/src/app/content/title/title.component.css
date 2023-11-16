@@ -1,17 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .mainContent {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  max-height: 50vh;
+  align-items: start;
+  height: 100%;
   transform-origin: center;
   transition: all ease-in-out 700ms;
   width: 100%;
 }
 .nine {
   font-family: "font9";
-  font-size: 800px;
+  font-size:800px;
   color: white;
   z-index: 15;
+  position: relative;
+  transform: translateY(-40%);
 }
 .conferenceName {
   color: #4bcb5e;

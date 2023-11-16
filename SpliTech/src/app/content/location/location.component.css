@@ -13,6 +13,7 @@
 }
 .location-text {
     max-width: 90vw;
+    font-family: fontEveret;
 }
 .location-text-small {
     max-width: 90vw;
@@ -37,27 +38,27 @@
     padding-right: 20px;
 }
 
-.location-text {
+.location-text{
     color: white;
     font-size: 24px;
-    line-height: 28px;
-    font-family: font-light;
+    line-height: 26px;
+    font-family: fontEveret;
 }
 
 .location-text > span {
-    font-family: font;
-    font-size: 28px;
+    font-family: fontEveret;
+    font-size: 24px;
 }
 
 .location-text-small {
-    font-family: font-light;
+    font-family: fontEveret;
     color: white;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 24px;
+    line-height: 26px;
 }
 
 .location-text-small > span {
-    font-family: font;
+    font-family: fontEveret;
     color: #4bcb5e;
 }
 @media screen and (max-width:800px) {

@@ -1,11 +1,11 @@
 @font-face {
     font-family: font;
-    src: url('../../../assets/Everett-Medium.otf');
+    src: url('../../../assets/VarentGrotesk-Bold.otf');
 }
 
 @font-face {
-    font-family: font-light;
-    src: url('../../../assets/Everett-Light.otf');
+    font-family: fontEveret;
+    src: url('../../../assets/Everett-Regular.otf');
 }
 
 .background {
@@ -92,7 +92,7 @@ a {
     padding: 40px;
     z-index: 10;
     color: white;
-    font-family: font-light;
+    font-family: fontEveret;
     font-size: 16px;
     line-height: 18px;
     max-height: 100vh;
@@ -162,7 +162,7 @@ a {
 }
 
 .roadtitle {
-    font-family: font-light;
+    font-family: fontEveret;
     font-size: 28px;
     color: #4bcb5e;
     line-height: 30px;
@@ -200,13 +200,13 @@ a {
     line-height: 30px;
     font-size: 25px;
     overflow-wrap: break-word;
-    font-family:font;
+    font-family:fontEveret;
 }
 .elementor-text-editor{
     color: #ffffff;
 }
 .elementor-widget-container{
-    font-family:  font;
+    font-family:  fontEveret;
 }
 .elementor-clearfix:after {
     content: '';
@@ -226,7 +226,7 @@ ul{
     letter-spacing: 0.3px;
     line-height: 26px;
     text-transform: initial;
-    font-family: font-light;
+    font-family: fontEveret;
 }
 .li{
     display: list-item;
