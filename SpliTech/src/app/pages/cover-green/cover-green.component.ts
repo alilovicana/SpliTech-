@@ -34,25 +34,22 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     this.$showcase.isCoverOpen = true;
     this.$showcase.show(path);
   }
-  decrementingScrollableElement=false;
+  decrementingScrollableElement = false;
   isScrolledToBottom() {
     let canvas = document.getElementById('canvas');
     let element = document.getElementById(
       this.$showcase.elementsOrder[this.$showcase.currentElement]
     );
     let scrolledToBottom;
-    if(this.decrementingScrollableElement){
-      scrolledToBottom=true;
-      this.decrementingScrollableElement=false;
-    }else{
+    if (this.decrementingScrollableElement) {
+      scrolledToBottom = true;
+      this.decrementingScrollableElement = false;
+    } else {
       scrolledToBottom =
-      Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
+        Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
     }
-    // console.log('element.scrollHeight' + element.scrollHeight);
-    // console.log('canvas.scrollTop ' + canvas.scrollTop);
-    // console.log('canvas.clientHeight' + canvas.clientHeight);
     if (canvas.clientHeight == 0) return true;
-    return  scrolledToBottom || element.offsetHeight < canvas.clientHeight;
+    return scrolledToBottom || element.offsetHeight < canvas.clientHeight;
   }
 
   ngAfterViewInit(): void {
@@ -61,10 +58,9 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
       'wheel',
       (event) => {
         if (event.deltaY < 0) {
-         this.decrementingScrollableElement=true;
+          this.decrementingScrollableElement = true;
         }
         if (!this.isScrolledToBottom()) return;
-        console.log("1")
         event.preventDefault();
         event.stopPropagation();
         if (this.transitioning) return;
@@ -118,23 +114,33 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
       { passive: false }
     );
     /**scroll on mobile phone */
-    let startY = null;
-    console.log('startY' + startY);
+
+    let startY;
+    document.addEventListener(
+      'touchstart',
+      (event) => {
+        startY = event.touches[0].clientY;
+      }
+    );
     document.addEventListener(
       'touchmove',
       (event) => {
         let i = 0;
-        let deltaY = event.touches[i++].clientY - startY;
+        let currentY = event.touches[0].clientY;
+        let deltaY = currentY - startY;
         console.log('deltaY' + deltaY);
         if (Math.abs(deltaY) < 10) {
           return; //izbjegavanje malih promjena
+        }
+        if (deltaY> 0) {
+          this.decrementingScrollableElement = true;
         }
         if (!this.isScrolledToBottom()) return;
         event.preventDefault();
         event.stopPropagation();
         if (this.transitioning) return;
         console.log('wheel detected!');
-        if (deltaY > 0 && !this.transitioning) {
+        if (deltaY < 0 && !this.transitioning) {
           this.transitioning = true;
           if (
             this.$showcase.currentElement == 0 &&
@@ -163,7 +169,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
               this.transitioning = false;
             }, 1000);
           }
-        } else if (deltaY < 0 && !this.transitioning) {
+        } else if (deltaY > 0 && !this.transitioning) {
           console.log('decrementing');
           if (this.$showcase.currentElement === 0) {
             this.$showcase.currentElement = this.$showcase.elementsOrder.length;
@@ -179,7 +185,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
         } else {
           console.log('0 bodova');
         }
-        startY = event.touches[i].clientY;
+        startY = currentY;
         console.log('startY' + startY);
       },
       { passive: false }

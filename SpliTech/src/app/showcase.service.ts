@@ -50,6 +50,6 @@ export class ShowcaseService {
       this.elements[element] = true;
       this.current = element;
       this.working = false;
-    }, 700);
+    }, 600);
   }
 }
