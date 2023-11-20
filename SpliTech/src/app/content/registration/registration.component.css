@@ -54,7 +54,7 @@
 }
 
 .reg-article {
-    font-size: 18px;
+    font-size: 22px;
     color: white;
     font-family: fontEveret;
     margin-top: 10px;
@@ -74,4 +74,8 @@
 }
 .paddingDiv{
     margin-bottom: 200px;
+}
+p{
+    font-size: 24px;
+    font-family: fontEveret;
 }

@@ -24,7 +24,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
   constructor(
     public $isVisible: IsVisibleService,
     public $showcase: ShowcaseService
-  ) {}
+  ) { }
   ngOnInit(): void {
     setTimeout(() => {
       this.activeStyle = this.styleBlue;
@@ -34,27 +34,37 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     this.$showcase.isCoverOpen = true;
     this.$showcase.show(path);
   }
+  decrementingScrollableElement=false;
   isScrolledToBottom() {
     let canvas = document.getElementById('canvas');
     let element = document.getElementById(
       this.$showcase.elementsOrder[this.$showcase.currentElement]
     );
-    let scrolledToBottom =
-      Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) <
-      1;
-    console.log('element.scrollHeight' + element.scrollHeight);
-    console.log('canvas.scrollTop ' + canvas.scrollTop);
-    console.log('canvas.clientHeight' + canvas.clientHeight);
-    //  return scrolledToBottom || (canvas.clientHeight === 0 ? element.offsetHeight< 700 : element.offsetHeight < canvas.clientHeight);
+    let scrolledToBottom;
+    if(this.decrementingScrollableElement){
+      scrolledToBottom=true;
+      this.decrementingScrollableElement=false;
+    }else{
+      scrolledToBottom =
+      Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
+    }
+    // console.log('element.scrollHeight' + element.scrollHeight);
+    // console.log('canvas.scrollTop ' + canvas.scrollTop);
+    // console.log('canvas.clientHeight' + canvas.clientHeight);
     if (canvas.clientHeight == 0) return true;
-    return scrolledToBottom || element.offsetHeight < canvas.clientHeight;
+    return  scrolledToBottom || element.offsetHeight < canvas.clientHeight;
   }
+
   ngAfterViewInit(): void {
     /**scroll on laptop */
     document.addEventListener(
       'wheel',
       (event) => {
+        if (event.deltaY < 0) {
+         this.decrementingScrollableElement=true;
+        }
         if (!this.isScrolledToBottom()) return;
+        console.log("1")
         event.preventDefault();
         event.stopPropagation();
         if (this.transitioning) return;

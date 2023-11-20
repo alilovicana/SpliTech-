@@ -272,7 +272,7 @@
   .authors{
     position: absolute;
     left: 73%;
-    top: 50%;
+    top: 45%;
   }
 }
 @media screen and (max-width: 800px) {

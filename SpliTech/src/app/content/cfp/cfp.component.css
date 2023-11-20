@@ -47,7 +47,7 @@ a {
 
 .cfp {
     font-family: font;
-    font-size: 60px;
+    font-size: 62px;
     background-color: #4bcb5e;
     padding: 30px;
     flex-shrink: 0;
@@ -55,7 +55,7 @@ a {
 }
 
 .sub {
-    font-family: font;
+    font-family: fontEveret;
     font-size: 28px;
     background-color: #4bcb5e;
     padding: 10px;
