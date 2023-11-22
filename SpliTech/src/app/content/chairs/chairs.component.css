@@ -14,9 +14,6 @@
   color: white;
   font-family: font;
   font-size: 62px;
-  /* letter-spacing: 15px; */
-  /* white-space: nowrap; */
-  /* padding: 8px; */
   position: relative;
   text-align: start;
   align-self: flex-start;
@@ -30,12 +27,24 @@
   align-items: center;
   padding: 40px;
   overflow: visible;
-  position: relative;
 }
 .comitee-image {
   width: 300px;
   height: 300px;
+  border-radius: 50%;
+  filter: grayscale(100%);
   object-fit: cover;
+  padding: 8px;
+}
+picture::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-right: 3px solid #4bcb5e;
+  transform: rotate(45deg);
 }
 
 .comitee-name {

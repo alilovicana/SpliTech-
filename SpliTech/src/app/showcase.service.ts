@@ -22,6 +22,9 @@ export class ShowcaseService {
     'organization',
     'contact'
   ];
+
+  cfpElement='cfp';
+  
   currentElement = 0;
 
   elements = {
