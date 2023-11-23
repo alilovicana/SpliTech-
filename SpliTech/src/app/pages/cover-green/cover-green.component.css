@@ -201,6 +201,15 @@
     width: 90px;
     height: 40px;
   }
+  .logoVertical{
+    position: absolute;
+    top: 40%;
+    left:80%;
+   }
+   .logoVertical img {
+     width: 90px;
+     height: 40px;
+   }
   .logoMenu {
     position: relative;
     bottom: 120px;
@@ -244,7 +253,7 @@
 
 .title {
   overflow-y: visible;
-
+   
 }
 
 .element {
@@ -267,7 +276,7 @@
 }
 @media screen and (max-width: 1800px) {
   .roko-open {
-    height: 400px;
+    height: 800px;
   }
   .authors{
     position: absolute;
@@ -281,4 +290,19 @@
   }
 
 }
+@media screen and (max-height: 1800px) {
+  .roko-open {
+    height: 650px;
+  }
+  .authors{
+    position: absolute;
+    left: 73%;
+    top: 45%;
+  }
+}
+@media screen and (max-height: 800px) {
+  .roko-open {
+    height: 450px;
+  }
 
+}

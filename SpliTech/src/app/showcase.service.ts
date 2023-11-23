@@ -20,7 +20,8 @@ export class ShowcaseService {
     'accomodation',
     'registration',
     'organization',
-    'contact'
+    'contact',
+    'cfp'
   ];
 
   cfpElement='cfp';

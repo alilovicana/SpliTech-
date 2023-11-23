@@ -40,14 +40,17 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     let element = document.getElementById(
       this.$showcase.elementsOrder[this.$showcase.currentElement]
     );
+    let elementCfp = document.getElementById(
+      this.$showcase.cfpElement
+    );
         let scrolledToBottom;
         if (this.decrementingScrollableElement) {
       scrolledToBottom = true;
       this.decrementingScrollableElement = false;
     } else {
-              scrolledToBottom =
-          Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
-          }
+        scrolledToBottom =
+        Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
+    }    
     if (canvas.clientHeight == 0) return true;
     return scrolledToBottom || element.offsetHeight < canvas.clientHeight;
   }
@@ -57,7 +60,9 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     document.addEventListener(
       'wheel',
       (event) => {
-        if (event.deltaY < 0) {
+        let canvas = document.getElementById('canvas');
+        
+        if (event.deltaY < 0 && canvas.scrollTop==0) {
           this.decrementingScrollableElement = true;
         }
         if (!this.isScrolledToBottom()) return;
@@ -132,7 +137,8 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
         if (Math.abs(deltaY) < 10) {
           return; //izbjegavanje malih promjena
         }
-        if (deltaY > 0) {
+        let canvas = document.getElementById('canvas');
+        if (deltaY > 0 && canvas.scrollTop==0) {
           this.decrementingScrollableElement = true;
         }
         if (!this.isScrolledToBottom()) return;

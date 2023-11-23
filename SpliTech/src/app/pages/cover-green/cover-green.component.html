@@ -5,9 +5,7 @@
   <div class="title">
     <div class="firstLine" id="goFor">GO FOR</div>
     <div class="menu" id="menu" (click)="$isVisible.toggleVisible()">
-      <img
-      [src]="activeStyle[1]"
-      />
+      <img [src]="activeStyle[1]" />
     </div>
     <div class="authors" (click)="navigateTo('cfp')"><img src="../../../assets/Authors-svg.svg" /></div>
     <div class="arrow">
@@ -23,18 +21,28 @@
           <div class="accomodation" ><img src="../../../assets/Accomodation-svg.svg"></div>
         </div> -->
 
-        <app-title         id="title" class="element" [ngClass]="{'element-show' : $showcase.elements['title'], 'element-hide' : !$showcase.elements['title'] }"></app-title>
-        <app-accomodation  id="accomodation" class="element" [ngClass]="{'element-show' : $showcase.elements['accomodation'], 'element-hide' : !$showcase.elements['accomodation'] }"></app-accomodation>
-        <app-chairs        id="chairs" class="element" [ngClass]="{'element-show' : $showcase.elements['chairs'], 'element-hide' : !$showcase.elements['chairs'] }"></app-chairs>
-        <app-committee     id="committee" class="element" [ngClass]="{'element-show' : $showcase.elements['committee'], 'element-hide' : !$showcase.elements['committee'] }"></app-committee>
-        <app-contact       id="contact" class="element" [ngClass]="{'element-show' : $showcase.elements['contact'], 'element-hide' : !$showcase.elements['contact'] }"></app-contact>
-        <app-important-dates id="important_dates" class="element" [ngClass]="{'element-show' : $showcase.elements['important_dates'], 'element-hide' : !$showcase.elements['important_dates'] }"></app-important-dates>
-        <app-location      id="location"class="element" [ngClass]="{'element-show' : $showcase.elements['location'], 'element-hide' : !$showcase.elements['location'] }"></app-location>
-        <app-organization id="organization" class="element" [ngClass]="{'element-show' : $showcase.elements['organization'], 'element-hide' : !$showcase.elements['organization'] }"></app-organization>
-        <app-registration id="registration" class="element" [ngClass]="{'element-show' : $showcase.elements['registration'], 'element-hide' : !$showcase.elements['registration'] }"></app-registration>
-        <app-cfp          id="cfp" class="element" [ngClass]="{'element-show' : $showcase.elements['cfp'], 'element-hide' : !$showcase.elements['cfp'] }"></app-cfp>
-      </div>
-      <div class="logoVertical"><img src="../../../assets/logoBijeli.svg" /></div>
+      <app-title id="title" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['title'], 'element-hide' : !$showcase.elements['title'] }"></app-title>
+      <app-accomodation id="accomodation" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['accomodation'], 'element-hide' : !$showcase.elements['accomodation'] }"></app-accomodation>
+      <app-chairs id="chairs" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['chairs'], 'element-hide' : !$showcase.elements['chairs'] }"></app-chairs>
+      <app-committee id="committee" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['committee'], 'element-hide' : !$showcase.elements['committee'] }"></app-committee>
+      <app-contact id="contact" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['contact'], 'element-hide' : !$showcase.elements['contact'] }"></app-contact>
+      <app-important-dates id="important_dates" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['important_dates'], 'element-hide' : !$showcase.elements['important_dates'] }"></app-important-dates>
+      <app-location id="location" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['location'], 'element-hide' : !$showcase.elements['location'] }"></app-location>
+      <app-organization id="organization" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['organization'], 'element-hide' : !$showcase.elements['organization'] }"></app-organization>
+      <app-registration id="registration" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['registration'], 'element-hide' : !$showcase.elements['registration'] }"></app-registration>
+      <app-cfp id="cfp" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['cfp'], 'element-hide' : !$showcase.elements['cfp'] }"></app-cfp>
+    </div>
+    <div class="logoVertical"><img src="../../../assets/logoBijeli.svg" /></div>
     <div class="secondLine">SpliTech 2024<span class="longLine"></span>Split - Bol, June 25-28, 2024</div>
     <div class="futureArrow">
       <span class="tirthLine" id="future">FUTURE!</span>

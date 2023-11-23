@@ -14,12 +14,14 @@
 
 .nine {
   font-family: "font9";
-  font-size: 800px;
+  font-size: 700px;
   color: white;
   z-index: 15;
   vertical-align: top; 
   position: relative;
-  transform: translateY(-40%);
+  line-height: 170px;
+  overflow: visible;
+  /* transform: translateY(-40%); */
 }
 
 .conferenceName {
@@ -30,11 +32,11 @@
 
 @media screen and (max-width: 1800px) {
   .nine {
-    font-size: 520px;
+    font-size: 420px;
   }
 
   .conferenceName {
-    font-size: 60px;
+    font-size: 50px;
   }
 }
 
@@ -42,9 +44,10 @@
   .mainContent {
     margin-top: 15vh;
   }
-
   .nine {
-    font-size: 200px;
+    font-size: 180px;
+    line-height: 50px;
+    overflow: visible;
   }
 
   .conferenceName {
