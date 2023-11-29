@@ -71,7 +71,7 @@ picture::before {
 }
 @media screen and (max-width: 800px) {
   .comitee-subtitle {
-    font-size: 28px;
+    font-size: 27px;
     letter-spacing: 2px;
   }
   .comitee-subtitle#chairs {
@@ -88,5 +88,14 @@ picture::before {
   .comitee-subtitle#organization {
     font-size: 28px;
   }
-  
+  .comitee-image {
+    width: 270px;
+    height: 270px;
+  }
+  picture::before {
+    content: '';
+    position: absolute;
+    width:270px;
+    height: 270px;
+  }
 }

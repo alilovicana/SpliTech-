@@ -7,7 +7,7 @@
     font-family: fontEveret;
     src: url('../../../assets/Everett-Regular.otf');
 }
-
+ 
 .background {
     overflow: hidden;
     /* background-color: #002340; */
@@ -118,8 +118,15 @@ a {
     margin-top: 40px;
     flex-shrink: 0;
 }
+.margin{
+    margin-bottom: 700px;
+}
 
 @media screen and (max-width:800px) {
+    * {
+        width: 70vw;
+        box-sizing: border-box;
+    }
 
     .background-logo {
         transform: rotate(90deg);
@@ -132,10 +139,7 @@ a {
 
     .roadmap {
         grid-template-columns: 1fr;
-        display: flex;
-        justify-content: flex;
     }
-
     .cfp {
         display: flex;
         justify-content: center;
@@ -145,27 +149,34 @@ a {
     }
 
     .roadtitle {
+        align-self: start;
         font-family: font;
         font-size: 18px;
         color: #4bcb5e;
         line-height: 20px;
+        width: 58vw;
+        overflow: hidden;
     }
 
     .roadtext {
         font-size: 8px;
         line-height: 12px;
         margin-top: 20px;
+        width: 58vw;
+        overflow: hidden;
     }
-
-    .background {
-        display: flex;
-        justify-content: center;
-        width: 90vw;
-    }
-
-    .conferenceTopics {
+    .under800pxRendering{
+        display:flex;
+        flex-direction: column;
         width: 100%;
     }
+    .elementor-column {
+        width: 100% !important
+    }
+    .link{
+        word-break: break-all;
+    }
+    
 }
 
 .road {

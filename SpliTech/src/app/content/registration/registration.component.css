@@ -79,3 +79,11 @@ p{
     font-size: 24px;
     font-family: fontEveret;
 }
+@media  screen and (max-width:800px) {  
+    .reg-article{
+        font-size: 18px;
+    }
+    p{
+        font-size: 18px;
+    }
+}

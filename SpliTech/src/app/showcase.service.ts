@@ -23,8 +23,6 @@ export class ShowcaseService {
     'contact',
     'cfp'
   ];
-
-  cfpElement='cfp';
   
   currentElement = 0;
 
@@ -54,6 +52,7 @@ export class ShowcaseService {
       this.elements[element] = true;
       this.current = element;
       this.working = false;
+      document.getElementById("canvas").scrollTop = 0;
     }, 600);
   }
 }

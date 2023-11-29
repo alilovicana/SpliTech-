@@ -19,8 +19,8 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     '../../../assets/greenStrelica.svg',
   ];
 
-  public heightOfElement;
   public activeStyle: string[] = this.styleGreen;
+
   constructor(
     public $isVisible: IsVisibleService,
     public $showcase: ShowcaseService
@@ -28,29 +28,44 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.activeStyle = this.styleBlue;
-    }, 1000);
+    }, 1200);
+
+    console.log("window height: " + window.innerHeight)
+
+    if(window.innerWidth <= 800) {
+      this.calculatedHeight = ((window.innerHeight - 100) - (window.innerWidth * 0.05)) + "px";
+      console.log(this.calculatedHeight)
+    } else {
+      this.calculatedHeight = ((window.innerHeight - 150) - (window.innerWidth * 0.05)) + "px";
+    }
+    
+
+    let containerElement = document.querySelector('.container');
+
+    if (!this.$showcase.isCoverOpen) {
+      containerElement.classList.add('not-open');
+    }
   }
   navigateTo(path: string) {
     this.$showcase.isCoverOpen = true;
     this.$showcase.show(path);
   }
+
   decrementingScrollableElement = false;
+
   isScrolledToBottom() {
     let canvas = document.getElementById('canvas');
     let element = document.getElementById(
       this.$showcase.elementsOrder[this.$showcase.currentElement]
     );
-    let elementCfp = document.getElementById(
-      this.$showcase.cfpElement
-    );
-        let scrolledToBottom;
-        if (this.decrementingScrollableElement) {
+    let scrolledToBottom;
+    if (this.decrementingScrollableElement) {
       scrolledToBottom = true;
       this.decrementingScrollableElement = false;
     } else {
-        scrolledToBottom =
+      scrolledToBottom =
         Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
-    }    
+    }
     if (canvas.clientHeight == 0) return true;
     return scrolledToBottom || element.offsetHeight < canvas.clientHeight;
   }
@@ -61,15 +76,23 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
       'wheel',
       (event) => {
         let canvas = document.getElementById('canvas');
-        
-        if (event.deltaY < 0 && canvas.scrollTop==0) {
+
+        let containerElement = document.querySelector('.container');
+        containerElement.classList.remove('not-open');
+
+        if (event.deltaY < 0 && canvas.scrollTop == 0) {
           this.decrementingScrollableElement = true;
         }
+
         if (!this.isScrolledToBottom()) return;
+
         event.preventDefault();
         event.stopPropagation();
+
         if (this.transitioning) return;
+
         console.log('wheel detected!');
+
         if (event.deltaY > 0 && !this.transitioning) {
           this.transitioning = true;
           if (
@@ -77,8 +100,11 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
             !this.$showcase.isCoverOpen
           ) {
             //not begun
+         
             console.log('first situation!');
             this.$showcase.isCoverOpen = true;
+            
+
             setTimeout(() => {
               this.transitioning = false;
             }, 2400);
@@ -89,9 +115,12 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
             ) {
               this.$showcase.currentElement = 0;
             }
+
             console.log('incrementing');
+            console.log('deltaYincerementing ' + canvas.scrollTop)
             this.transitioning = true;
             this.$showcase.currentElement++;
+
             this.$showcase.show(
               this.$showcase.elementsOrder[this.$showcase.currentElement]
             );
@@ -101,6 +130,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           }
         } else if (event.deltaY < 0 && !this.transitioning) {
           console.log('decrementing');
+          console.log('deltaYDacerementing ' + canvas.scrollTop)
           if (this.$showcase.currentElement === 0) {
             this.$showcase.currentElement = this.$showcase.elementsOrder.length;
           }
@@ -138,7 +168,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           return; //izbjegavanje malih promjena
         }
         let canvas = document.getElementById('canvas');
-        if (deltaY > 0 && canvas.scrollTop==0) {
+        if (deltaY > 0 && canvas.scrollTop == 0) {
           this.decrementingScrollableElement = true;
         }
         if (!this.isScrolledToBottom()) return;
@@ -204,4 +234,10 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     let canvas = document.getElementById('canvas');
     canvas.scrollTo({ top: 1400, behavior: 'smooth' });
   }
+
+  calculatedHeight = "300px"
+
+
+
+
 }

@@ -1,12 +1,50 @@
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
+  /* transform: translateY(-10vh); */
   width: 100%;
-  padding: 2% 15% 5% 15%;
+  padding: 0% 15% 5% 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 100vh;
+  /* max-height: 100vh; */
+  overflow-y: visible;
+  position: relative;
+  /* transform: translate(0,0); */
+
+}
+.alignSelf{
+  align-self: center;
+}
+.not-open > * {
+    transform:  none !important;
+  }
+
+@media screen and (max-width: 2000px) {
+  .container > * {
+    transform: translateY(-200px);
+  }
+}
+@media screen and (max-width: 1700px) {
+  .container > * {
+    transform: translateY(-150px);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .container > * {
+    transform: translateY(-150px);
+  }
+}
+@media screen and (max-width: 800px) {
+  .container > * {
+    transform: translateY(-60px);
+  }
+}
+@media screen and (max-width: 500px) {
+  .container > * {
+    transform: translateY(-45px);
+  }
+ 
 }
 .logo img {
   width: 150px;
@@ -19,20 +57,28 @@
 } 
 .logoVertical{
  transform: rotate(90deg);
- position: absolute;
- top: 40%;
- left:88%;
+ position: fixed;
+  top: 40%;
+  right: 4%;
+  width: 150px;
+  height: 70px;
+  z-index: 200;
+  overflow: visible;
 }
 .logoVertical img {
   width: 150px;
   height: 70px;
 }
 .menu {
-  z-index: 90;
-  position: absolute;
-  left: 90%;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  z-index: 200;
+  overflow: visible;
+  right: 100px;
   top: 10%;
   cursor: pointer;
+  transition:  3s ease-in;
 }
 .futureArrow {
   display: flex;
@@ -40,16 +86,56 @@
   text-align: center;
 }
 .arrow {
-  position: absolute;
-  left: 90%;
+  position: fixed;
+  width: 150px;
+  height: 70px;
+  z-index: 200;
+  overflow: visible;
+  right: 40px;
   top: 70%;
 }
 .firstLine,
 .tirthLine {
-  font-size: 13vw;
+  font-size: 300px;
   font-family: font;
   font-weight: bold;
   position: relative;
+}
+/* // > 2000 */
+
+/* // 1200 - 2000 */
+@media screen and (max-width: 2000px) {
+  .firstLine,
+.tirthLine {
+  font-size: 250px;
+}
+}
+@media screen and (max-width: 1700px) {
+  .firstLine,
+.tirthLine {
+  font-size: 175px;
+}
+}
+/* // 800 - 1200 */
+@media screen and (max-width: 1200px) {
+  .firstLine,
+  .tirthLine {
+    font-size: 130px;
+  }
+}
+/* // 500 - 800 */
+@media screen and (max-width: 800px) {
+  .firstLine,
+  .tirthLine {
+    font-size: 80px;
+  }
+}
+/* // < 500 */
+@media screen and (max-width: 500px) {
+  .firstLine,
+  .tirthLine {
+    font-size: 40px;
+  }
 }
 .secondLine {
   color: white;
@@ -66,10 +152,35 @@
 }
 .authors {
   z-index: 90;
-  position: absolute;
-  left: 73%;
-  top: 35%;
+  position: fixed;
+  width: 150px;
+  height: 70px;
+  z-index: 200;
+  overflow: visible;
+  right: 400px;
+  top: 40%;
   cursor: pointer;
+}
+.authors img {
+  width: 180px;
+  height: 180px;
+}
+@media screen and (max-width: 1500px) {
+  .authors {
+    z-index: 90;
+    position: fixed;
+    width: 130px;
+    height: 60px;
+    z-index: 200;
+    overflow: visible;
+    right: -40px;
+    top: 55%;
+    cursor: pointer;
+  }
+  .authors img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 .styleGreen {
@@ -96,8 +207,10 @@
 
 .canvas {
   width: 100%;
+  max-width: 90vw;
+  position: relative;
   height: 0px;
-  overflow: auto;
+  overflow-y: auto;
   transition: height ease-in-out 700ms;
   overscroll-behavior: contain;
   position: relative;
@@ -117,6 +230,7 @@
 #canvas::-webkit-scrollbar-thumb {
   background: transparent;
 }
+
 /* content unutar canve*/
 
 .mainContentPlayGround {
@@ -157,12 +271,8 @@
 @media screen and (max-width: 800px) {
   .container {
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
-  }
-  .firstLine,
-  .tirthLine {
-    font-size: 50px;
   }
   .secondLine {
     color: white;
@@ -202,9 +312,14 @@
     height: 40px;
   }
   .logoVertical{
-    position: absolute;
-    top: 40%;
-    left:80%;
+    transform: rotate(90deg);
+    position: fixed;
+     top: 40%;
+     right: -20px;
+     width: 150px;
+     height: 70px;
+     z-index: 200;
+     overflow: visible;
    }
    .logoVertical img {
      width: 90px;
@@ -219,43 +334,39 @@
     height: 50px;
   }
   .menu {
-    position: absolute;
-    left: 80%;
-    top: 10%;
-  }
-  .authors img {
-    width: 80px;
-    height: 80px;
-  }
-  .authors {
-    position: absolute;
-    z-index: 2;
+    position: fixed;
+    top: 100px;
+    right: 20px;
   }
   .arrow {
-    padding-top: 8%;
+    position: fixed;
+    width: 150px;
+    height: 70px;
+    z-index: 200;
+    overflow: visible;
+    right: -100px;
+    top: 70%;
   }
   .arrow img {
     width: 30px;
     height: 30px;
   }
+  .roko-open {
+    height: 600px;
+  }
+
 }
 
 
 
-.roko-open {
+/* .roko-open {
   height: 700px;
-}
+} */
 
 .roko-devetka-velika {
   transform-origin: center;
   transform: scale(3,3);
 }
-
-.title {
-  overflow-y: visible;
-   
-}
-
 .element {
   transition:  all 700ms;
   position: absolute;
@@ -275,34 +386,15 @@
   justify-content: center;
 }
 @media screen and (max-width: 1800px) {
-  .roko-open {
-    height: 800px;
-  }
-  .authors{
-    position: absolute;
-    left: 73%;
-    top: 45%;
-  }
-}
-@media screen and (max-width: 800px) {
-  .roko-open {
+  /* .roko-open {
     height: 600px;
-  }
-
-}
-@media screen and (max-height: 1800px) {
-  .roko-open {
-    height: 650px;
-  }
-  .authors{
+  } */
+  
+  /* .authors{
     position: absolute;
-    left: 73%;
+    right: 20px;
     top: 45%;
-  }
+  } */
 }
-@media screen and (max-height: 800px) {
-  .roko-open {
-    height: 450px;
-  }
 
-}
+
