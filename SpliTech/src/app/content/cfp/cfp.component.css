@@ -119,7 +119,7 @@ a {
     flex-shrink: 0;
 }
 .margin{
-    margin-bottom: 700px;
+    margin-bottom: 300px;
 }
 
 @media screen and (max-width:800px) {

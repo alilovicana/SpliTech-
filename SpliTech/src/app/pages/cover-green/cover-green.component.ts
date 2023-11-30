@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, NgZone, OnInit } from '@angular/core';
 import { IsVisibleService } from 'src/app/is-visible.service';
 import { ShowcaseService } from '../../showcase.service';
 
@@ -23,7 +23,8 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
 
   constructor(
     public $isVisible: IsVisibleService,
-    public $showcase: ShowcaseService
+    public $showcase: ShowcaseService,
+    public $zone : NgZone
   ) { }
   ngOnInit(): void {
     setTimeout(() => {
@@ -33,7 +34,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     console.log("window height: " + window.innerHeight)
 
     if(window.innerWidth <= 800) {
-      this.calculatedHeight = ((window.innerHeight - 100) - (window.innerWidth * 0.05)) + "px";
+      this.calculatedHeight = ((window.innerHeight - 170) - (window.innerWidth * 0.05)) + "px";
       console.log(this.calculatedHeight)
     } else {
       this.calculatedHeight = ((window.innerHeight - 150) - (window.innerWidth * 0.05)) + "px";
@@ -75,6 +76,8 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     document.addEventListener(
       'wheel',
       (event) => {
+        console.log('wheel detected!');
+
         let canvas = document.getElementById('canvas');
 
         let containerElement = document.querySelector('.container');
@@ -91,7 +94,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
 
         if (this.transitioning) return;
 
-        console.log('wheel detected!');
+        
 
         if (event.deltaY > 0 && !this.transitioning) {
           this.transitioning = true;
@@ -107,7 +110,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
 
             setTimeout(() => {
               this.transitioning = false;
-            }, 2400);
+            }, 2000);
           } else {
             if (
               this.$showcase.currentElement ===
@@ -126,7 +129,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
             );
             setTimeout(() => {
               this.transitioning = false;
-            }, 2400);
+            }, 2000);
           }
         } else if (event.deltaY < 0 && !this.transitioning) {
           console.log('decrementing');
@@ -141,7 +144,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           );
           setTimeout(() => {
             this.transitioning = false;
-          }, 2400);
+          }, 2000);
         } else {
           console.log('0 bodova');
         }
@@ -159,7 +162,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
     );
     document.addEventListener(
       'touchmove',
-      (event) => {
+      async (event) => {
         let i = 0;
         let currentY = event.touches[0].clientY;
         let deltaY = currentY - startY;
@@ -171,7 +174,11 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
         if (deltaY > 0 && canvas.scrollTop == 0) {
           this.decrementingScrollableElement = true;
         }
-        if (!this.isScrolledToBottom()) return;
+        if (!this.isScrolledToBottom()) { 
+          // await new Promise((res, rej) => { setTimeout(() => { res(true); }, 1000);})
+          // if(!this.isScrolledToBottom()) return
+          return
+        };
         event.preventDefault();
         event.stopPropagation();
         if (this.transitioning) return;
@@ -187,7 +194,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
             this.$showcase.isCoverOpen = true;
             setTimeout(() => {
               this.transitioning = false;
-            }, 2400);
+            }, 2000);
           } else {
             if (
               this.$showcase.currentElement ===
@@ -203,7 +210,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
             );
             setTimeout(() => {
               this.transitioning = false;
-            }, 1000);
+            }, 2000);
           }
         } else if (deltaY > 0 && !this.transitioning) {
           console.log('decrementing');
@@ -217,7 +224,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
           );
           setTimeout(() => {
             this.transitioning = false;
-          }, 1000);
+          }, 2000);
         } else {
           console.log('0 bodova');
         }

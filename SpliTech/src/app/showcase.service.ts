@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShowcaseService {
-  constructor() {}
+  constructor(
+    public $zone : NgZone
+  ) {}
   isVisible: boolean = false;
   isCoverOpen = false;
 
@@ -49,10 +51,14 @@ export class ShowcaseService {
     this.working = true;
     this.elements[this.current] = false;
     setTimeout(() => {
-      this.elements[element] = true;
-      this.current = element;
-      this.working = false;
-      document.getElementById("canvas").scrollTop = 0;
-    }, 600);
+      this.$zone.run(() => {
+        this.elements[element] = true;
+        this.current = element;
+        this.working = false;
+        document.getElementById("canvas").scrollTop = 0;
+
+        console.log(this.elements)
+      })
+    }, 1000);
   }
 }
