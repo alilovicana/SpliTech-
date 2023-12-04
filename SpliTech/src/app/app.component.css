@@ -1,0 +1,33 @@
+@font-face {
+  font-family: font;
+  src: url("../assets/VarentGrotesk-Bold.otf");
+}
+
+@font-face {
+  font-family: font-light;
+  src: url("../assets/Everett-Light.otf");
+}
+@font-face {
+  font-family: fontVarent;
+  src: url("../assets/VarentGrotesk-Bold.otf");
+}
+@font-face {
+  font-family: fontEveret;
+  src: url("../assets/Everett-Regular.otf");
+}
+@font-face {
+  font-family: font9;
+  src: url("../assets/MAZIUS.otf");
+}
+* {
+  flex-shrink: 0;
+  color: white;
+  font-family: fontEveret;
+}
+/* 
+.menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+} */

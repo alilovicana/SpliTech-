@@ -1,0 +1,287 @@
+@font-face {
+    font-family: font;
+    src: url('../../../assets/VarentGrotesk-Bold.otf');
+}
+
+@font-face {
+    font-family: fontEveret;
+    src: url('../../../assets/Everett-Regular.otf');
+}
+ 
+.background {
+    overflow: hidden;
+    /* background-color: #002340; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -2;
+}
+
+.background-logo {
+    position: fixed;
+    width: 150%;
+    z-index: 0;
+    opacity: 0.05;
+    transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+    display: none;
+}
+
+.background-logo-open {
+    width: 200%;
+}
+
+/*  */
+
+
+a {
+    color: #4bcb5e;
+}
+
+.cfp {
+    font-family: font;
+    font-size: 62px;
+    background-color: #4bcb5e;
+    padding: 30px;
+    flex-shrink: 0;
+    line-height: 64px;
+    color: white;
+}
+
+.sub {
+    font-family: fontEveret;
+    font-size: 28px;
+    background-color: #4bcb5e;
+    padding: 10px;
+    margin-top: 40px;
+    flex-shrink: 0;
+    line-height: 32px;
+    color: white;
+}
+
+.background {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    flex-shrink: 0;
+}
+
+#container::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+#container::-webkit-scrollbar {
+    width: 0rem;
+}
+
+#container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#container::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.content {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    padding: 40px;
+    z-index: 10;
+    color: white;
+    font-family: fontEveret;
+    font-size: 16px;
+    line-height: 18px;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+#content::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+#content::-webkit-scrollbar {
+    width: 0rem;
+}
+
+#content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.roadmap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 40px;
+    flex-shrink: 0;
+}
+.margin{
+    margin-bottom: 300px;
+}
+
+@media screen and (max-width:800px) {
+    * {
+        width: 70vw;
+        box-sizing: border-box;
+    }
+
+    .background-logo {
+        transform: rotate(90deg);
+        width: 100%;
+    }
+
+    .background-logo-open {
+        width: 50%;
+    }
+
+    .roadmap {
+        grid-template-columns: 1fr;
+    }
+    .cfp {
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        padding: 10px;
+        line-height: 34px;
+    }
+
+    .roadtitle {
+        align-self: start;
+        font-family: font;
+        font-size: 18px;
+        color: #4bcb5e;
+        line-height: 20px;
+        width: 58vw;
+        overflow: hidden;
+    }
+
+    .roadtext {
+        font-size: 8px;
+        line-height: 12px;
+        margin-top: 20px;
+        width: 58vw;
+        overflow: hidden;
+    }
+    .under800pxRendering{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .elementor-column {
+        width: 100% !important
+    }
+    .link{
+        word-break: break-all;
+    }
+    
+}
+
+.road {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.roadtitle {
+    font-family: fontEveret;
+    font-size: 28px;
+    color: #4bcb5e;
+    line-height: 30px;
+}
+
+.roadtext {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 20px;
+    color: white;
+}
+
+.para {
+    font-size: 20px;
+    line-height: 25px;
+    margin-top: 10px;
+    flex-shrink: 0;
+    color: white;
+}
+
+.para>strong {
+    font-family: font;
+}
+
+.para>span {
+    font-family: font;
+    color: #4bcb5e;
+}
+
+
+/*conference topics html*/
+.elementor-heading-title {
+    color: #4bcb5e;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 25px;
+    overflow-wrap: break-word;
+    font-family: fontEveret;
+}
+
+.elementor-text-editor {
+    color: #ffffff;
+}
+
+.elementor-widget-container {
+    font-family: fontEveret;
+}
+
+.elementor-clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-position: inside;
+    padding: 0;
+    margin: 0 0 25px;
+    list-style-type: disc;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    line-height: 26px;
+    text-transform: initial;
+    font-family: fontEveret;
+}
+
+.li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.elementor-row {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.elementor-column {
+    position: relative;
+    min-height: 1px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+}

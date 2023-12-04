@@ -1,0 +1,28 @@
+@import url("../chairs/chairs.component.css");
+* {
+  color: white;
+}
+.hotelName {
+  font-size: 32px;  
+  font-family: fontEveret;
+  text-align: center;
+}
+.hotelDescription{
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  line-height: 26px;
+  font-family: fontEveret;
+}
+
+@media screen and (max-width: 800px) {
+  .hotelName {
+    font-size: 25px;
+  }
+  .hotelDescription{
+    font-size: 18px;
+  }
+  .comitee-subtitle#accomodation {
+    font-size: 28px;
+  }
+}

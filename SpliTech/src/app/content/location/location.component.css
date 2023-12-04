@@ -1,0 +1,81 @@
+@import url('../chairs/chairs.component.css');
+.comitee {
+    display: grid !important;
+}
+
+.location {
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: 1fr !important;
+    justify-content: center !important;
+    align-items: center;
+    margin-bottom: 300px;
+}
+.location-text {
+    max-width: 90vw;
+    font-family: fontEveret;
+}
+.location-text-small {
+    max-width: 90vw;
+}
+.location-image-map {
+    filter: hue-rotate(330deg) saturate(2);
+}
+.location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    margin-top: 40px;
+}
+
+.location-image {
+    object-fit: cover;
+    width: 500px;
+    height: 300px;
+    justify-self: end;
+    border-right: 2px solid white;
+    padding-right: 20px;
+}
+
+.location-text{
+    color: white;
+    font-size: 24px;
+    line-height: 26px;
+    font-family: fontEveret;
+}
+
+.location-text > span {
+    font-family: fontEveret;
+    font-size: 24px;
+}
+
+.location-text-small {
+    font-family: fontEveret;
+    color: white;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+.location-text-small > span {
+    font-family: fontEveret;
+    color: #4bcb5e;
+}
+@media screen and (max-width:800px) {
+    .location-image {
+        width: 270px;
+        height: 200px;
+      } 
+    .location-text-small{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:400px) {
+    .location-image {
+        width: 270px;
+        height: 200px;
+      } 
+    .location{
+        width: 70vw;
+    }
+}

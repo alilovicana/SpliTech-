@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+  transform-origin: center;
+  transition: all ease-in-out 700ms;
+}
+
+.nine {
+  font-family: "font9";
+  font-size: 700px;
+  color: white;
+  z-index: 15;
+  vertical-align: top; 
+  position: relative;
+  line-height: 170px;
+  overflow: visible;
+  /* transform: translateY(-40%); */
+}
+
+.conferenceName {
+  color: #4bcb5e;
+  font-size: 80px;
+  font-family: "fontEveret";
+}
+
+@media screen and (max-width: 1800px) {
+  .nine {
+    font-size: 420px;
+  }
+
+  .conferenceName {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mainContent {
+    margin-top: 15vh;
+  }
+  .nine {
+    font-size: 180px;
+    line-height: 50px;
+    overflow: visible;
+  }
+
+  .conferenceName {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,48 @@
+.important-dates {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: font;
+    font-size: 32px;
+    background-color: #4bcb5e;
+    padding: 8px;
+}
+
+.full-paper-submission {
+    margin-top: 10px;
+    color: white;
+    font-family: fontEveret;
+    font-size: 28px;
+}
+
+.full-paper-submission-date {
+    color: #4bcb5e;
+    font-family: fontEveret;
+    font-size: 24px;
+}
+
+.notification-of-acceptance{
+    margin-top: 20px;
+    color: white;
+    font-family: fontEveret;
+    font-size: 22px;
+}
+
+.notification-of-acceptance-date {
+    color: #4bcb5e;
+    font-family: fontEveret;
+    font-size: 18px;
+}
+
+.camera-ready-paper {
+    margin-top: 20px;
+    color: white;
+    font-family: fontEveret;
+    font-size: 22px;
+}
+
+.camera-ready-paper-date {
+    color: #4bcb5e;
+    font-family: fontEveret;
+    font-size: 18px;
+}

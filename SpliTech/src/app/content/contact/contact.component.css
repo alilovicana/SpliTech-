@@ -1,0 +1,49 @@
+.contact {
+  background-color: #4bcb5e;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-size: contain;
+  height:100%; 
+  width: 100vh;
+  border-radius: 17px;
+  padding: 30px;
+  margin-top: 10vh;
+  font-family: fontEveret;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  margin-right: 20px;
+  filter: invert(1);
+}
+
+.fb-icon {
+  background-image: url("https://img.icons8.com/material/344/facebook-new.png");
+}
+
+.instagram-icon {
+  background-image: url("https://img.icons8.com/material/344/instagram-new--v1.png");
+}
+
+.twitter-icon {
+  background-image: url("https://img.icons8.com/material/344/twitter-squared.png");
+}
+
+.linkedin-icon {
+  background-image: url("https://img.icons8.com/material/344/linkedin--v1.png");
+}
+@media screen and (max-width:800px) {
+  .contact {
+    width:270px;
+    left:-100%;
+    border: transparent;
+  }
+}
