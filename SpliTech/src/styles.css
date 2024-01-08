@@ -3,3 +3,8 @@
     overflow-y: hidden;
     overflow-x: hidden;
 }
+*[_ngcontent-kdx-c5] {
+    flex-shrink: 0;
+    color: #fff;
+    font-family: font-light;
+}

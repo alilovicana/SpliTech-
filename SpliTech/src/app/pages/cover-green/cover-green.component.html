@@ -1,11 +1,11 @@
-<div class="logoVertical" *ngIf="this.$showcase.isCoverOpen"  ><img src="../../../assets/logoBijeli.svg" /></div>
-<div class="authors"  (click)="navigateTo('cfp')"><img src="../../../assets/Authors-svg.svg" /></div>
+<div class="logoVertical" *ngIf="this.$showcase.isCoverOpen"><img src="../../../assets/logoBijeli.svg" /></div>
+<div class="authors" (click)="navigateTo('cfp')"><img src="../../../assets/Authors-svg.svg" /></div>
 
-<div class="menu" *ngIf="this.$showcase.isCoverOpen" id="menu" (click)="$isVisible.toggleVisible()"  >
+<div class="menu" *ngIf="this.$showcase.isCoverOpen" id="menu" (click)="$isVisible.toggleVisible()">
   <img [src]="activeStyle[1]" />
 </div>
 
-<div class="arrow" *ngIf="this.$showcase.isCoverOpen" >
+<div class="arrow" *ngIf="this.$showcase.isCoverOpen">
   <img [src]="activeStyle[2]" style="transition: ease 1s" />
 </div>
 <div class="container" id="main-container" [ngClass]="activeStyle[0]">
@@ -15,7 +15,7 @@
   <div class="title">
     <div class="firstLine" id="goFor">GO FOR</div>
 
-  
+
     <div class="canvas" [style.height]="this.$showcase.isCoverOpen ? calculatedHeight : '0px'" id="canvas">
 
       <!-- <div class="mainContentPlayGround">
@@ -46,6 +46,14 @@
         [ngClass]="{'element-show' : $showcase.elements['registration'], 'element-hide' : !$showcase.elements['registration'] }"></app-registration>
       <app-cfp id="cfp" class="element"
         [ngClass]="{'element-show' : $showcase.elements['cfp'], 'element-hide' : !$showcase.elements['cfp'] }"></app-cfp>
+      <app-sponsors id="sponsors" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['sponsors'], 'element-hide' : !$showcase.elements['sponsors'] }"></app-sponsors>
+      <app-symposia id="symposia" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['symposia'], 'element-hide' : !$showcase.elements['symposia'] }"></app-symposia>
+      <app-supporters id="supporters" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['supporters'], 'element-hide' : !$showcase.elements['supporters'] }"></app-supporters>
+      <app-special-session id="specialSession" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['specialSession'], 'element-hide' : !$showcase.elements['specialSession'] }"></app-special-session>
     </div>
     <div class="secondLine">SpliTech 2024<span class="longLine"></span>Split - Bol, June 25-28, 2024</div>
     <div class="futureArrow">

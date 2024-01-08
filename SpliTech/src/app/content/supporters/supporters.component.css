@@ -1,0 +1,51 @@
+.comitee-subtitle {
+    z-index: 3;
+    margin-top: 80px;
+    color: white;
+    font-family: font;
+    font-size: 62px;
+    position: relative;
+    text-align: start;
+    align-self: flex-start;
+    /* padding-left: 30px; */
+    overflow: visible;
+}
+
+.salento[_ngcontent-sde-c5], .thessaloniki, .hatz{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: center;
+    width: 300px;
+    height: 200px;
+    filter: brightness(0) invert(1);
+}
+
+.salento[_ngcontent-sde-c5] {
+    background-image: url(https://universitycorridors.unhcr.it/wp-content/uploads/2021/02/img_coordUnisalento.png);
+}
+.thessaloniki{
+    background-image: url(https://www.auth.gr/wp-content/uploads/banner-horizontal-black-en.png);
+}
+.hatz{
+    background-image: url("../../../assets/Logo-HATZ-a-ana.svg");
+}
+
+@media screen and (max-width: 800px) {
+    .comitee-subtitle {
+        font-size: 27px;
+        letter-spacing: 2px;
+        justify-content: center;
+    }
+
+    .salento[_ngcontent-sde-c5], .thessaloniki, .hatz{
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        align-self: center;
+        padding-top: 200px;
+        width: 200px;
+        height: 100px;
+        filter: brightness(0) invert(1);
+    }
+}

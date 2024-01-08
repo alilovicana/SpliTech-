@@ -22,6 +22,10 @@ export class ShowcaseService {
     'accomodation',
     'registration',
     'organization',
+    'symposia',
+    'specialSession',
+    'sponsors',
+    'supporters',
     'contact',
     'cfp'
   ];
@@ -38,6 +42,10 @@ export class ShowcaseService {
     location: false,
     organization: false,
     registration: false,
+    sponsors:false,
+    supporters:false,
+    symposia:false,
+    specialSesstion:false,
     cfp:false
   };
 

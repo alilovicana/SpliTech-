@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .mainContent {
   display: flex;
   justify-content: center;
@@ -17,7 +18,7 @@
   font-size: 700px;
   color: white;
   z-index: 15;
-  vertical-align: top; 
+  vertical-align: top;
   position: relative;
   line-height: 170px;
   overflow: visible;
@@ -44,6 +45,7 @@
   .mainContent {
     margin-top: 15vh;
   }
+
   .nine {
     font-size: 180px;
     line-height: 50px;
@@ -52,5 +54,31 @@
 
   .conferenceName {
     font-size: 20px;
+  }
+}
+
+.ieee[_ngcontent-kdx-c5] {
+  background-image: url(../../../assets/ieee-everet-2.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 200px;
+  /* bottom: -180px;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute; */
+  margin-left: 100px;
+}
+
+@media screen and (max-width: 800px) {
+  .ieee[_ngcontent-kdx-c5] {
+    background-image: url(../../../assets/ieee-everet-2.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 100px;
+    margin-right: 100px;
   }
 }

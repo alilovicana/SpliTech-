@@ -16,6 +16,10 @@ import { OrganizationComponent } from './content/organization/organization.compo
 import { ContactComponent } from './content/contact/contact.component';
 import { TitleComponent } from './content/title/title.component';
 import { CfpComponent } from './content/cfp/cfp.component';
+import { SponsorsComponent } from './content/sponsors/sponsors.component';
+import { SymposiaComponent } from './content/symposia/symposia.component';
+import { SpecialSessionComponent } from './content/special-session/special-session.component';
+import { SupportersComponent } from './content/supporters/supporters.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { CfpComponent } from './content/cfp/cfp.component';
     OrganizationComponent,
     ContactComponent,
     TitleComponent,
-    CfpComponent
+    CfpComponent,
+    SponsorsComponent,
+    SymposiaComponent,
+    SpecialSessionComponent,
+    SupportersComponent
   ],
   imports: [
     BrowserModule,
