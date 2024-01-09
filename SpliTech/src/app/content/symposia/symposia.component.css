@@ -39,8 +39,9 @@
     grid-column-gap: 60px;
     overflow: visible;
 }
-
-
+.margin{
+    margin-bottom: 300px;
+}
 @media screen and (max-width: 800px) {
     .comitee-subtitle {
       font-size: 27px;

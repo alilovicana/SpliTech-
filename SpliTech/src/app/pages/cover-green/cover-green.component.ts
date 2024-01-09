@@ -23,6 +23,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
 
   constructor(
     public $isVisible: IsVisibleService,
+    public $isNotVisible: IsVisibleService,
     public $showcase: ShowcaseService,
     public $zone : NgZone
   ) { }
@@ -50,6 +51,7 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
   navigateTo(path: string) {
     this.$showcase.isCoverOpen = true;
     this.$showcase.show(path);
+    this.$isNotVisible.isVisible=false;
   }
 
   decrementingScrollableElement = false;
@@ -64,10 +66,16 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
       scrolledToBottom = true;
       this.decrementingScrollableElement = false;
     } else {
+      console.log("isScrolledToBottom:")
+      console.log("scrollHeight: " + element.scrollHeight)
+      console.log("scrollTop: " + canvas.scrollTop)
+      console.log("clientHeight: " + canvas.clientHeight)
       scrolledToBottom =
-        Math.abs(element.scrollHeight - canvas.scrollTop - canvas.clientHeight) < 1;
+        element.scrollHeight - canvas.scrollTop - (canvas.clientHeight + 20) < 1;
+
     }
     if (canvas.clientHeight == 0) return true;
+
     return scrolledToBottom || element.offsetHeight < canvas.clientHeight;
   }
 
@@ -86,9 +94,9 @@ export class CoverGreenComponent implements AfterViewInit, OnInit {
         if (event.deltaY < 0 && canvas.scrollTop == 0) {
           this.decrementingScrollableElement = true;
         }
-
+console.log("prije scrolla")
         if (!this.isScrolledToBottom()) return;
-
+console.log("poslije scrolla")
         event.preventDefault();
         event.stopPropagation();
 

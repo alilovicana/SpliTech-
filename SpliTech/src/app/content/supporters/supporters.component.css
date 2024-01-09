@@ -30,7 +30,9 @@
 .hatz{
     background-image: url("../../../assets/Logo-HATZ-a-ana.svg");
 }
-
+.margin{
+    margin-bottom: 300px;
+}
 @media screen and (max-width: 800px) {
     .comitee-subtitle {
         font-size: 27px;

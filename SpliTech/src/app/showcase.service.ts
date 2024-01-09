@@ -34,19 +34,18 @@ export class ShowcaseService {
 
   elements = {
     title: true,
-    accomodation: false,
-    chairs: false,
-    committee: false,
-    contact: false,
     important_dates: false,
+    committee: false,
     location: false,
-    organization: false,
+    accomodation: false,
     registration: false,
-    sponsors:false,
-    supporters:false,
+    organization: false,
     symposia:false,
     specialSesstion:false,
-    cfp:false
+    sponsors:false,
+    supporters:false,
+    contact: false,
+    cfp:false,
   };
 
   current = 'title';

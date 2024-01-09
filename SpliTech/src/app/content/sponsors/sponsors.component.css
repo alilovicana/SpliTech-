@@ -20,7 +20,9 @@
     height: 200px;
     filter: brightness(0) invert(1);
 }
-
+.margin{
+  margin-bottom: 300px;
+}
 @media screen and (max-width: 800px) {
     .comitee-subtitle {
       font-size: 27px;

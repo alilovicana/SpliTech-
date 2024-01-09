@@ -1,5 +1,7 @@
 <div class="logoVertical" *ngIf="this.$showcase.isCoverOpen"><img src="../../../assets/logoBijeli.svg" /></div>
-<div class="authors" (click)="navigateTo('cfp')"><img src="../../../assets/Authors-svg.svg" /></div>
+
+<!-- add some style for authors able -->
+<div class="authors" (click)="navigateTo('cfp')"><img src="../../../assets/Authors-svg.svg" /></div> 
 
 <div class="menu" *ngIf="this.$showcase.isCoverOpen" id="menu" (click)="$isVisible.toggleVisible()">
   <img [src]="activeStyle[1]" />
@@ -30,8 +32,8 @@
         [ngClass]="{'element-show' : $showcase.elements['title'], 'element-hide' : !$showcase.elements['title'] }"></app-title>
       <app-accomodation id="accomodation" class="element"
         [ngClass]="{'element-show' : $showcase.elements['accomodation'], 'element-hide' : !$showcase.elements['accomodation'] }"></app-accomodation>
-      <app-chairs id="chairs" class="element"
-        [ngClass]="{'element-show' : $showcase.elements['chairs'], 'element-hide' : !$showcase.elements['chairs'] }"></app-chairs>
+      <!-- <app-chairs id="chairs" class="element"
+        [ngClass]="{'element-show' : $showcase.elements['chairs'], 'element-hide' : !$showcase.elements['chairs'] }"></app-chairs> -->
       <app-committee id="committee" class="element"
         [ngClass]="{'element-show' : $showcase.elements['committee'], 'element-hide' : !$showcase.elements['committee'] }"></app-committee>
       <app-contact id="contact" class="element"
